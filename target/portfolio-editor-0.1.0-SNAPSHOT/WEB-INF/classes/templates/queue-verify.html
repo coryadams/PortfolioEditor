@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: header"/>
+<body class="page-body" data-url="http://neon.dev">
+    <div class="page-container">
+        <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+        <div th:include="fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+
+        <div class="main-content">
+
+            <div class="row">
+                <!-- Raw Links -->
+                <ul class="list-inline links-list pull-right">
+                    <li class="sep"></li>
+                    <li>
+                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                    </li>
+                </ul>
+                <div th:inline="text">Logged in User: [[${#httpServletRequest.remoteUser}]]</div>
+            </div>
+
+            <hr/>
+            <h3 th:text="|Verify Queue: ${queueName} |"/>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-info">
+                        <div th:text="|Router URL: ${routerUrl}|"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">&nbsp;Queue Loopback Test</div>
+                        <div class="panel-body">
+                            <form action="#" th:action="@{/queue/loopback}" th:object="${queue}" method="post">
+                                <input type="hidden" id="id" th:field="${queue.id}"/>
+                                <div class="form-group">
+                                    <label>Message Text</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="messageText" size="60"
+                                               placeholder="Enter Text" aria-describedby="basic-addon1"/>
+                                    </div>
+
+                                </div>
+                                <div class="form-group" th:if="${responseText != null}">
+                                    <label>Response Text</label>
+                                    <input type="text" class="form-control" name="responseText" size="60"
+                                           aria-describedby="basic-addon1" th:value="${responseText}" readonly="true"/>
+
+                                    <!--<p th:inline="text">[[${responseText}]]</p>-->
+                                    <p th:inline="text">round-trip time = [[${elapsedTime}]] ms</p>
+                                </div>
+
+                                <button type="submit" class="btn btn-success">Run</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <h3>Queue Read/Write Code Samples</h3>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Java
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <pre th:inline="text">
+public class AMQPLoopbackTest {
+
+    public void run() throws Exception {
+
+        Connection connection = new Connection(new AMQPContext(AMQPContext.CLIENT), "[[${ipaddr}]]", 5672, true);
+        connection.connect();
+
+        // Create session and consumer
+        Session session = connection.createSession(50, 50);
+        Consumer consumer = session.createConsumer("", 100, QoS.EXACTLY_ONCE, true, null);
+
+        Producer producer = session.createProducer("[[${queue.name}]]", QoS.EXACTLY_ONCE);
+
+        AMQPMessage msg = new AMQPMessage();
+
+        msg.setAmqpValue(new AmqpValue(new AMQPString("this is a test")));
+        producer.send(msg);
+
+        AMQPMessage message = consumer.receive();
+        if (!message.isSettled()) {
+            message.accept();
+        }
+
+        System.out.println("Received message text: "+message.getAmqpValue().getValue().getValueString());
+
+        consumer.close();
+        producer.close();
+        session.close();
+        connection.close();
+
+    }
+
+    public static void main (String[] args) {
+
+        AMQPLoopbackTest test = new AMQPLoopbackTest();
+
+        try {
+            test.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Python
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                        <pre th:inline="text">
+#!/usr/bin/env python
+import sys
+from proton import *
+
+messenger = Messenger()
+message = Message()
+
+address = "amqp://[[${ipaddr}]]:5672/[[${queue.name}]]"
+
+message.address = address
+message.properties = {u"binding": u"python", u"version": sys.version}
+message.body = u"Hello World!"
+
+messenger.start()
+tracker = messenger.put(message)
+print "Put: %s" % message
+messenger.send()
+print "Status: %s" % messenger.status(tracker)
+
+messenger.subscribe(address)
+
+message1 = Message()
+messenger.recv()
+messenger.get(message1)
+print "Got: %s" % message1
+messenger.accept()
+
+messenger.stop()
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                C++
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer th:replace="fragments/footer :: footer"/>
+        </div>
+    </div>
+
+    <th:block th:include="fragments/index-footer-links :: links"/>
+</body>
+</html>

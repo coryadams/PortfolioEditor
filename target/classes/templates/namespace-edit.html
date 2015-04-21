@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: header"/>
+<body class="page-body" data-url="http://neon.dev">
+<div class="page-container">
+    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div class="main-content">
+        <div class="row">
+            <!-- Profile Info and Notifications -->
+            <div class="col-md-6 col-sm-8 clearfix">
+                <!--<div th:include="fragments/notifications :: notifications"/>-->
+            </div>
+            <!-- Raw Links -->
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+                <ul class="list-inline links-list pull-right">
+                    <li class="sep"></li>
+                    <li>
+                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr/>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+            </li>
+            <li>
+                <a href="/index.html">Administration</a>
+            </li>
+            <li class="active">
+                <a href="/namespace">Namespaces</a>
+            </li>
+            <li class="active">
+                <strong>Edit</strong>
+            </li>
+        </ol>
+        <br/>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">&nbsp;Edit Namespace</div>
+                    <div class="panel-body">
+                        <form action="#" th:action="@{/namespace/edit}" th:object="${namespace}" method="post">
+                            <input type="hidden" id="id" th:field="${namespace.id}"/>
+                            <div class="form-group">
+                                <label >Name</label>
+                                <input th:if="${namespace.id != null} " type="text" class="form-control" th:field="*{name}" placeholder="Enter Namespace name" readonly="true"/>
+                                <input th:if="${namespace.id == null} and ${! #fields.hasErrors('name')}" type="text" class="form-control" th:field="*{name}" placeholder="Enter Namespace name"/>
+                                <th:block th:if="${namespace.id == null} and ${ #fields.hasErrors('name')}">
+                                    <input type="text" class="form-control" th:field="*{name}"/>
+                                    <p class="alert alert-danger" th:errors="*{name}"/>
+                                </th:block>
+                                <th:block th:if="${namespace.id == null} and ${! #fields.hasErrors('name')}">
+                                    <p class="help-block">The name of your Application Namespace</p>
+                                </th:block>
+                            </div>
+                            <div class="form-group">
+                                <label for="select.brokerType.id">Choose Broker Type</label> <br/>
+                                <select id="select.brokerType.id" multiple="multiple" name="select.brokerType.id">
+                                    <option th:each="brokerType : ${brokerTypesList}" th:value="${brokerType.id}" th:text="${brokerType.name}"
+                                            th:selected="${namespace.brokerType.contains(brokerType)}"/>
+                                </select>
+                                <p class="help-block">Select the Broker Type for this Namespace</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="select.availabilityZone.id">Availability Zones</label> <br/>
+                                    <select id="select.availabilityZone.id" multiple="multiple" name="select.availabilityZone.id">
+                                    <option th:each="availabilityZone : ${availabilityZonesList}" th:value="${availabilityZone.id}" th:text="${availabilityZone.name}"
+                                            th:selected="${namespace.availabilityZones.contains(availabilityZone)}"/>
+                                </select>
+                                <p class="help-block">Select Availability Zones for this Namespace</p>
+                            </div>
+                            <div class="form-group">
+                                <label >Tenant</label>
+                                <input type="text" class="form-control" th:field="*{tenant}" placeholder="Enter Tenant/BU name"/>
+                                <p class="help-block">Tenancy examples: PayPal, eBay</p>
+                            </div>
+                           <button type="submit" class="btn btn-success" th:if="${namespace.id != null}" >Edit</button>
+                           <button type="submit" class="btn btn-success" th:if="${namespace.id == null}" >Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!-- Footer -->
+        <footer th:replace="/fragments/footer :: footer"/>
+    </div>
+</div>
+<th:block th:include="fragments/footer-links :: links"/>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<!-- Add namespace modal -->
+<div class="modal fade" id="addModal">
+    <div class="modal-dialog">
+        <form id="namespace" role="form" action="/namespace/add" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add Namespace</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="form-horizontal form-groups-bordered">
+                        <div class="form-group">
+                            <label for="field-1" class="control-label">Name</label>
+
+                            <input type="text" class="form-control" id="field-1" placeholder=""/>
+
+                            <label for="field-2" class="control-label">Description</label>
+
+                            <textarea class="form-control autogrow" id="field-2"
+                                      placeholder="Write something about yourself"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Edit namespace modal -->
+<div class="modal fade" id="editModal">
+    <div class="modal-dialog">
+        <form id="namespace" role="form" action="/namespace/add" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Edit Namespace</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="form-horizontal form-groups-bordered">
+                        <div class="form-group">
+                            <label for="field-1" class="control-label">Name</label>
+                            <input type="hidden" id="namespace_id" value=""/>
+                            <input type="text" class="form-control" id="name" placeholder=""/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Delete namespace modal -->
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Namespace</h4>
+            </div>
+
+            <div class="modal-body">
+                Are you sure you want to delete <label name="namespace-name" id="namespace-name" value=""/>?
+            </div>
+
+            <form>
+                <input type="hidden" name="id" id="id" value=""/>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

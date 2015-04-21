@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1033649372">
+    <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.5.41-0ubuntu0.14.04.1" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.6 ( Revision: ${svn.Revision} )" uuid="9d9f3f71-1e6f-4fd0-855d-47173fee52aa">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost/portfolio_db</jdbc-url>
+      <user-name>portfolio</user-name>
+      <user-password>dfdadfc5dfd8dfdedfccdfc5dfc6dfc3dfc5df93df93</user-password>
+      <libraries>
+        <library>
+          <url>jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar!/</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: header"/>
+<body class="page-body" data-url="http://neon.dev">
+<div class="page-container">
+    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div class="main-content">
+        <div class="row">
+            <!-- Profile Info and Notifications -->
+            <div class="col-md-6 col-sm-8 clearfix">
+                <!--<div th:include="fragments/notifications :: notifications"/>-->
+            </div>
+            <!-- Raw Links -->
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+                <ul class="list-inline links-list pull-right">
+                    <li class="sep"></li>
+                    <li>
+                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr/>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+            </li>
+            <li>
+                <a href="/index.html">Administration</a>
+            </li>
+            <li class="active">
+                <strong>Subscription</strong>
+            </li>
+            <li class="active">
+                <strong>List</strong>
+            </li>
+        </ol>
+        <br/>
+        Connect URI Format: amqp://&lt;namespace&gt;/topic/&lt;topic name&gt;/&lt;subscriber name&gt;
+        <p></p>
+        <table class="table table-bordered table-striped datatable" id="table-2">
+            <thead>
+            <tr>
+                <th>Subscription Name</th>
+                <th>Topic Provider</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody class='container'>
+            <tr th:each="subscription : ${subscriptions}">
+                <td th:text="${subscription.name}"/>
+                <td th:text="${subscription.topic.name}"/>
+                <td>
+                    <!--<button class="btn btn-primary edit"-->
+                            <!--th:onclick="'javascript:handleEdit(\'' + ${subscription.id} + '\');'">-->
+                        <!--<i class="entypo-pencil icon-white"></i>&nbsp;Edit-->
+                    <!--</button>-->
+                    <!--<button class="btn btn-primary delete"-->
+                            <!--th:onclick="'javascript:handleDelete(\'' + ${subscription.id} + '\', \'' + ${subscription.name} + '\');'">-->
+                        <!--<i class="entypo-erase icon-white"></i>&nbsp;Delete-->
+                    <!--</button>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-success" onclick="handleCreate()">
+            <i class="entypo-list-add icon-white"></i>&nbsp;New Subscriber
+        </button>
+        <br/>
+        <!-- Footer -->
+        <footer th:replace="/fragments/footer :: footer"/>
+    </div>
+</div>
+<script type="text/javascript">
+    /*<![CDATA[*/
+    <!-- Handle Edit -->
+    function handleEdit(id) {
+        var url = "/subscription/" + id;
+        window.location.href = url;
+    }
+
+    <!-- Handle Create -->
+    function handleCreate() {
+        var url = "/subscription/0";
+        window.location.href = url;
+    }
+
+    <!-- Handle Delete Modal -->
+    function handleDelete(subscription_id, subscription_name) {
+        document.getElementById('id').value = subscription_id;
+        document.getElementById('subscription-name').innerHTML = subscription_name;
+        $('#deleteModal').modal('show');
+    }
+    /*]]>*/
+</script>
+
+<th:block th:include="/fragments/footer-links :: links"/>
+<!-- Delete modal -->
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Subscribers</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <label name="subscription-name" id="subscription-name" value=""/>?
+            </div>
+            <form action="#" th:action="@{/subscription/delete}" th:object="${subscription}" method="post">
+                <input type="hidden" name="id" id="id" value=""/>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info" id="submit">Confirm Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

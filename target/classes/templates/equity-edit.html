@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: header"/>
+<body class="page-body" data-url="http://neon.dev">
+<div class="page-container">
+    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div class="main-content">
+        <div class="row">
+            <!-- Profile Info and Notifications -->
+            <div class="col-md-6 col-sm-8 clearfix">
+                <!--<div th:include="fragments/notifications :: notifications"/>-->
+            </div>
+            <!-- Raw Links -->
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+                <ul class="list-inline links-list pull-right">
+                    <li class="sep"></li>
+                    <li>
+                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr/>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+            </li>
+            <li>
+                <a href="/index.html">Administration</a>
+            </li>
+            <li class="active">
+                <a href="/equity">Equity</a>
+            </li>
+            <li class="active">
+                <strong>Edit</strong>
+            </li>
+        </ol>
+        <br/>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">&nbsp;Edit Equity</div>
+                    <div class="panel-body">
+                        <form action="#" th:action="@{/equity/edit}" th:object="${equity}" method="post">
+                            <input type="hidden" id="id" th:field="${equity.id}"/>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input th:if="${equity.id == null}" type="text" class="form-control" th:field="*{name}" placeholder="Enter Equity name"/>
+                                <p class="help-block">The name of your Equity</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Ticker</label>
+                                <input type="text" class="form-control" th:field="*{Ticker}" placeholder="Ticker Symbol"/>
+                                <p class="help-block">The Ticker Symbol</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="select.exchange.id">Exchanges</label> <br/>
+                                <input th:if="${equity.id != null}" type="text" class="form-control" th:field="*{exchange.identifier}" readonly="true"/>
+                                <select th:if="${equity.id == null}" id="select.exchange.id" multiple="false" name="select.exchange.id">
+                                    <option th:each="exchange : ${exchangeList}" th:value="${exchange.id}"
+                                            th:text="${exchange.identifier}"
+                                            th:selected="${equity.exchange == exchange}"/>
+                                </select>
+                                <p class="help-block">Select Exchange for this Equity</p>
+                            </div>
+                           <!--<button type="submit" class="btn btn-success" th:if="${equity.id != null}" >Edit</button>-->
+                            <label th:if="${equity.id != null}">Edit not currently allowed.</label>
+                           <button type="submit" class="btn btn-success" th:if="${equity.id == null}" >Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!-- Footer -->
+        <footer th:replace="/fragments/footer :: footer"/>
+    </div>
+</div>
+<th:block th:include="fragments/footer-links :: links"/>
+</body>
+</html>

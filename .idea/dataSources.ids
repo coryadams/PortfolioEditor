@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.5.41-0ubuntu0.14.04.1" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.6 ( Revision: ${svn.Revision} )" uuid="9d9f3f71-1e6f-4fd0-855d-47173fee52aa">
+    <extra-name-characters>#@</extra-name-characters>
+    <identifier-quote-string>`</identifier-quote-string>
+    <synchronize>true</synchronize>
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://localhost/portfolio_db</jdbc-url>
+    <user-name>portfolio</user-name>
+    <user-password>dfdadfc5dfd8dfdedfccdfc5dfc6dfc3dfc5df93df93</user-password>
+    <libraries>
+      <library>
+        <url>jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar!/</url>
+      </library>
+    </libraries>
+    <schema name="" catalog="information_schema"/>
+    <schema name="" catalog="portfolio_db"/>
+    <table name="bond_asset" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="55" precision="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" length="256" precision="0" nullable="true" jdbcType="12"/>
+      <column name="bond_type" sqlType="VARCHAR" length="25" precision="0" nullable="true" jdbcType="12"/>
+      <column name="coupon" sqlType="DECIMAL" length="6" precision="2" nullable="true" jdbcType="3"/>
+      <column name="maturity_date" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="rating" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
+      <column name="exchange_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="bond_asset_ibfk_1" columns="exchange_id" ref-table="exchange" ref-schema="" ref-catalog="portfolio_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="current_asset_allocation" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="portfolio_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="current_asset_allocation_ibfk_1" columns="portfolio_id" ref-table="portfolio" ref-schema="" ref-catalog="portfolio_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="current_bond" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="current_asset_allocation_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="bond_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="current_asset_allocation_id,bond_id"/>
+    </table>
+    <table name="current_equity" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="current_asset_allocation_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="equity_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="current_asset_allocation_id,equity_id"/>
+    </table>
+    <table name="current_future" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="current_asset_allocation_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="future_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="current_asset_allocation_id,future_id"/>
+    </table>
+    <table name="current_option" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="current_asset_allocation_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="option_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="current_asset_allocation_id,option_id"/>
+    </table>
+    <table name="daily_asset_allocation" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="date" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="portfolio_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="daily_asset_allocation_ibfk_1" columns="portfolio_id" ref-table="portfolio" ref-schema="" ref-catalog="portfolio_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="daily_bond" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="daily_asset_allocation_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="bond_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="daily_asset_allocation_id,bond_id"/>
+    </table>
+    <table name="daily_equity" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="daily_asset_allocation_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="equity_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="daily_asset_allocation_id,equity_id"/>
+    </table>
+    <table name="daily_future" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="daily_asset_allocation_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="future_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="daily_asset_allocation_id,future_id"/>
+    </table>
+    <table name="daily_option" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="daily_asset_allocation_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="option_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="daily_asset_allocation_id,option_id"/>
+    </table>
+    <table name="equity_asset" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="55" precision="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" length="256" precision="0" nullable="true" jdbcType="12"/>
+      <column name="ticker" sqlType="VARCHAR" length="8" precision="0" nullable="false" jdbcType="12"/>
+      <column name="exchange_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="equity_asset_ibfk_1" columns="exchange_id" ref-table="exchange" ref-schema="" ref-catalog="portfolio_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exchange" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="identifier" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" length="55" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="bond_asset_ibfk_1" table="bond_asset" schema="" catalog="portfolio_db" columns="exchange_id"/>
+      <exported-key name="equity_asset_ibfk_1" table="equity_asset" schema="" catalog="portfolio_db" columns="exchange_id"/>
+      <exported-key name="future_asset_ibfk_1" table="future_asset" schema="" catalog="portfolio_db" columns="exchange_id"/>
+      <exported-key name="option_asset_ibfk_1" table="option_asset" schema="" catalog="portfolio_db" columns="exchange_id"/>
+    </table>
+    <table name="future_asset" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="55" precision="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" length="256" precision="0" nullable="true" jdbcType="12"/>
+      <column name="exchange_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="future_asset_ibfk_1" columns="exchange_id" ref-table="exchange" ref-schema="" ref-catalog="portfolio_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="option_asset" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="55" precision="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" length="256" precision="0" nullable="true" jdbcType="12"/>
+      <column name="underlying_symbol" sqlType="VARCHAR" length="8" precision="0" nullable="false" jdbcType="12"/>
+      <column name="expiration_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="option_type" sqlType="VARCHAR" length="3" precision="0" nullable="false" jdbcType="12"/>
+      <column name="strike_price" sqlType="DECIMAL" length="6" precision="2" nullable="false" jdbcType="3"/>
+      <column name="exchange_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="option_asset_ibfk_1" columns="exchange_id" ref-table="exchange" ref-schema="" ref-catalog="portfolio_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="portfolio" schema="" catalog="portfolio_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="55" precision="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" length="256" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="current_asset_allocation_ibfk_1" table="current_asset_allocation" schema="" catalog="portfolio_db" columns="portfolio_id"/>
+      <exported-key name="daily_asset_allocation_ibfk_1" table="daily_asset_allocation" schema="" catalog="portfolio_db" columns="portfolio_id"/>
+    </table>
+  </data-source>
+</component>

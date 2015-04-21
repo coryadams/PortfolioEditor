@@ -1,0 +1,1463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/asset-management-hld.gliffy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/asset-management-hld.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/command-state.gliffy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/command-state.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/create-container.gliffy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/create-container.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/dynamic-allocation.gliffy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/dynamic-allocation.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/initial-allocation.gliffy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/initial-allocation.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/provisioning-user-flow.gliffy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/provisioning-user-flow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/placeholder" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/AdminCommandException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/AdminCommandExecutor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/proton/MessageListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/proton/ProtonAdminCommandExecutor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/proton/SimpleMessageListenerContainer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/swiftmq/AMQPLoopbackTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/swiftmq/AMQPMessageListenerContainer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/swiftmq/AmqpAdminCommandExecutor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/swiftmq/ManagementEventListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/swiftmq/MessageListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/mammut/admin/swiftmq/SwiftMqLoopbackQueueTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/config/Application.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/config/ExternalBeanFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/config/MvcConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/config/PersistenceJPAConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/config/SimpleCORSFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/config/WebSecurityConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/AccountDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/AccountDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/AvailabilityZoneDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/AvailabilityZoneDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/BrokerDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/BrokerDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/BrokerTypeDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/BrokerTypeDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/CommandDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/CommandDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/ContainerDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/ContainerDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/HostDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/HostDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/NamespaceDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/NamespaceDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/QueueDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/QueueDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/RouterDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/RouterDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/SubscriptionDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/SubscriptionDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/TaskDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/TaskDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/TopicDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/TopicDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/YamBridgeDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/dao/YamBridgeDAOImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Account.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/AvailabilityState.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/AvailabilityZone.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Broker.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/BrokerType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Command.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Container.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Host.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Namespace.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/ProvisioningState.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/ProvisioningTarget.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Queue.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Role.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Router.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Subscription.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Task.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/Topic.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/domain/YamBridge.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/event/proton/AdminMessageListenerContainer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/event/proton/ManagementEventListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/event/proton/MessengerThread.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/event/swiftmq/MessageListenerContainerFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/AccountRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/AvailabilityZoneRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/BrokerRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/BrokerTypeRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/CommandRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/ContainerRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/HostRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/NamespaceRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/QueueRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/RouterRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/SubscriptionRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/TaskRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/TopicRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/repository/YamBridgeRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/AvailabilityZoneRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/BrokerRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/BrokerTypeRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/ContainerRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/HostRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/NamespaceRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/QueueRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/SubscriptionRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/rest/TopicRestController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/service/AvailabilityZoneService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/service/C3HostService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/service/CommandService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/service/HostService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/service/NamespaceService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/service/TaskService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/service/YamBridgeService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/EntryController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/ErrorHandlerController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/HostController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/NamespaceController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/QueueController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/SubscriptionController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/TopicController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/WebInitializer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/paypal/platform/messaging/management/web/YamBridgeController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/messaging/TestHarness.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/messaging/TestManagementEventListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/repository/SendCommandsTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/service/C3HostServiceTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/service/CommandServiceTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/service/ExecuteTaskTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/service/LdapAuthExample.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/service/NamespaceServiceTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/paypal/platform/messaging/management/service/TaskServiceTest.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/templates/host-edit.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/equity-edit.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/templates/host.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/equity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/db-setup.sql" afterPath="$PROJECT_DIR$/src/test/resources/db-setup.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/head.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/head.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/relay.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/relay.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/sidebar-menu.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/sidebar-menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/test-app-config.xml" afterPath="$PROJECT_DIR$/src/test/resources/test-app-config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/test-data-setup.sql" afterPath="$PROJECT_DIR$/src/test/resources/test-data-setup.sql" />
+    </list>
+    <ignored path="admin-console.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429630965013" ignored="false" />
+    <file path="$PROJECT_DIR$/target/classes/logback.xml" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425573077861" ignored="false" />
+    <file path="$PROJECT_DIR$/target/test-classes/test-app-config.xml" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425573077862" ignored="false" />
+    <file path="/application.properties" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429638859872" ignored="false" />
+    <file path="$PROJECT_DIR$/../test-app/src/test/java/com/paypal/snappy/SnappyCompressionUtil.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425658139083" ignored="false" />
+    <file path="/SnappyCompressionUtil.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425657897732" ignored="false" />
+    <file path="$PROJECT_DIR$/../test-app/src/test/java/com/paypal/snappy/SnappyTest.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425658139083" ignored="false" />
+    <file path="/SnappyTest.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425658135208" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/impl/MayflyClientImpl.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1426000694259" ignored="false" />
+    <file path="/MayflyClientImpl.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425659237096" ignored="false" />
+    <file path="/fragment.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429651044806" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/impl/SnappyCompressionUtil.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/test/java/com/paypal/infra/mayfly20/impl/SnappyCompressionUtilTest.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425675676773" ignored="false" />
+    <file path="/SnappyCompressionUtilTest.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425674424400" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra-core/src/main/java/com/paypal/infra/util/stats/io/StatisticCollectingOutputStream.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673234976" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra-core/src/main/java/com/paypal/infra/transport/ConnectionInformationTransport.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673234976" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra-core/src/main/java/com/paypal/infra/util/stats/io/StatisticCollectingInputStream.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673234976" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra-core/src/main/java/com/paypal/infra/transport/TransportResponseContext.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673234976" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/impl/struct/OperationMsg.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly/util/MayflyClientUtil.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly/impl/MayflyPropertiesProvider.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/impl/struct/RecordInfo.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/impl/struct/MayflyHeaderStruct.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly/MayflyException.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly/impl/struct/MessageDataTagStruct.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly/MayflyOperationStatus.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/net/connection/ConnectionManager.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/Mayfly20ClientConfiguration.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/impl/MayflyClientFactory_Internal.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/impl/struct/MayflyMsg.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/UpdateVersionInvalidException.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/CalConstants.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/impl/Mayfly20ClientConfigHolder.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1426000694259" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/MayflyResponse.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly20/MayflyContext.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly/conf/MayflyDefaultPropertiesProvider.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly/conf/MayflyPropertyDef.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/main/java/com/paypal/infra/mayfly/cal/CalStatusCode.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425673431116" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra-core/src/main/java/com/paypal/infra/util/conf/ConfUtils.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1425674346046" ignored="false" />
+    <file path="$PROJECT_DIR$/../infra/infra/src/test/java/com/paypal/infra/mayfly20/impl/MayflyNonMockedTest.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1426000694259" ignored="false" />
+    <file path="/test-data-setup.sql" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429648794478" ignored="false" />
+    <file path="/NamespaceService.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1428333969969" ignored="false" />
+    <file path="/db-setup.sql" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429652873475" ignored="false" />
+    <file path="/NamespaceController.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1428335334607" ignored="false" />
+    <file path="/*.regexp" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429649610718" ignored="false" />
+    <file path="/namespace-edit.html" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1428335485745" ignored="false" />
+    <file path="$PROJECT_DIR$/../Raptor-Mayfly.ssl/temp_persist_config_019.xml" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1428354006729" ignored="false" />
+    <file path="$PROJECT_DIR$/../Raptor-Mayfly.ssl/mayfly-client/src/test/java/com/ebay/inc/platform/mayfly/impl/MayflyNonMockedWithSslTest.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1428353958447" ignored="false" />
+    <file path="/MayflyNonMockedWithSslTest.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1428353792679" ignored="false" />
+    <file path="/pom.xml" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429547899953" ignored="false" />
+    <file path="/Portfolio.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429639748645" ignored="false" />
+    <file path="/Asset.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429562599093" ignored="false" />
+    <file path="$PROJECT_DIR$/../admin-console/src/main/java/com/paypal/platform/messaging/management/domain/AvailabilityZone.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429558266167" ignored="false" />
+    <file path="/test-app-config.xml" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429562682333" ignored="false" />
+    <file path="/index.html" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429629088274" ignored="false" />
+    <file path="/footer.html" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429565053231" ignored="false" />
+    <file path="/head.html" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429565078408" ignored="false" />
+    <file path="/WebSecurityConfig.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429566265189" ignored="false" />
+    <file path="/Bond.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429646888465" ignored="false" />
+    <file path="/BondType.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429573948776" ignored="false" />
+    <file path="/Equity.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429574379155" ignored="false" />
+    <file path="/OptionType.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429574850558" ignored="false" />
+    <file path="/Option.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429646132913" ignored="false" />
+    <file path="/Exchange.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429629237329" ignored="false" />
+    <file path="/DailyAssetAllocation.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429632747987" ignored="false" />
+    <file path="/CurrentAssetAllocation.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429636059045" ignored="false" />
+    <file path="/AccountRepository.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429639013577" ignored="false" />
+    <file path="/Future.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429648465984" ignored="false" />
+    <file path="/sidebar-menu.html" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429649890652" ignored="false" />
+    <file path="/EquityController.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429651354160" ignored="false" />
+    <file path="/EquityRepository.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429650257541" ignored="false" />
+    <file path="/EquityService.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429650740605" ignored="false" />
+    <file path="/ExchangeRepository.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429650899654" ignored="false" />
+    <file path="/ExchangeService.java" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429651196177" ignored="false" />
+    <file path="/equity.html" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429653511959" ignored="false" />
+    <file path="/equity-edit.html" changelist="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" time="1429653979035" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="admin-console" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.6666667">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="Equity.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Equity.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="6" column="19" selection-start="140" selection-end="146" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="sidebar-menu.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fragments/sidebar-menu.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="74" column="0" selection-start="3046" selection-end="3046" vertical-scroll-proportion="-13.583333">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EquityController.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/web/EquityController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="64" column="42" selection-start="2169" selection-end="2171" vertical-scroll-proportion="-6.08">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="equity.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/templates/equity.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="64" column="110" selection-start="2374" selection-end="2374" vertical-scroll-proportion="-1.9387755">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="equity-edit.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/templates/equity-edit.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="62" column="75" selection-start="3132" selection-end="3132" vertical-scroll-proportion="-3.1632652">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ExchangeService.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/service/ExchangeService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="22" column="19" selection-start="803" selection-end="803" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ExchangeRepository.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/repository/ExchangeRepository.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="10" column="24" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EquityService.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/service/EquityService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="19" column="19" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EquityRepository.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/repository/EquityRepository.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="10" column="22" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="db-setup.sql" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/test/resources/db-setup.sql">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="51" column="10" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.48640484">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Option.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Option.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="50" column="25" selection-start="1337" selection-end="1337" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Exchange.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Equity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Option.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Bond.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Future.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/test-data-setup.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/relay.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fragments/sidebar-menu.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/repository/EquityRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/service/EquityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/repository/ExchangeRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/service/ExchangeService.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/db-setup.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/equity.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/web/EquityController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/equity-edit.html" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="portfolio-editor" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="portfolio-editor" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1600" />
+    <option name="height" value="875" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="management" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="management" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="management" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="management" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="management" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortfolioEditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="management" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="options.lastSelected" value="reference.settings.ide.settings.web.browsers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.companyx.platform.portfolio.management.service" />
+      <recent name="com.companyx.platform.portfolio.management.repository" />
+      <recent name="com.companyx.platform.portfolio.management.web" />
+      <recent name="com.companyx.platform.portfolio.management.domain" />
+      <recent name="com.companyx.platform.portfolio.management.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/config" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.companyx.platform.portfolio.management" />
+      <recent name="com" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Local Tomcat">
+    <configuration default="false" name="admin-platform [compile]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compile" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Local Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.01">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="PortfolioEditor:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_admin-console" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="56739" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="PortfolioEditor:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Maven.admin-platform [compile]" />
+      <item index="1" class="java.lang.String" itemvalue="Tomcat Server.Local Tomcat" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Maven.admin-platform [compile]" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8139cd5f-4d5c-49b3-ae93-1c97f4d29b40" name="Default" comment="" />
+      <created>1425572961516</created>
+      <updated>1425572961516</updated>
+    </task>
+    <task id="LOCAL-00001" summary="changes for broker type.">
+      <created>1428344827450</created>
+      <updated>1428344827450</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1600" height="875" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3415638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921812" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1488402" sideWeight="0.5349794" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3988604" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32647464" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21585052" sideWeight="0.46776405" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2113402" sideWeight="0.5418381" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45816186" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes for broker type." />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="changes for broker type." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Future.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="25" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/test-data-setup.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="50" selection-start="1535" selection-end="1535" vertical-scroll-proportion="-2.3">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/web/EntryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/relay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="79" selection-start="2228" selection-end="2254" vertical-scroll-proportion="-5.9583335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fragments/sidebar-menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="0" selection-start="3046" selection-end="3046" vertical-scroll-proportion="-13.583333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/repository/EquityRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="22" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/domain/Equity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="19" selection-start="140" selection-end="146" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/repository/ExchangeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="24" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/service/ExchangeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="19" selection-start="803" selection-end="803" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/service/EquityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="19" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/db-setup.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="10" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.48640484">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/equity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="110" selection-start="2374" selection-end="2374" vertical-scroll-proportion="-1.9387755">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/companyx/platform/portfolio/management/web/EquityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="42" selection-start="2169" selection-end="2171" vertical-scroll-proportion="-6.08">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/equity-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="75" selection-start="3132" selection-end="3132" vertical-scroll-proportion="-3.1632652">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>admin-console</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+
