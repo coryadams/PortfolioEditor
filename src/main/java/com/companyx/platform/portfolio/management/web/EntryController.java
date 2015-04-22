@@ -39,7 +39,7 @@ public class EntryController {
         return "index";
     }
 
-    @RequestMapping("/index.html")
+    @RequestMapping("index.html")
     public String index(Model model, HttpServletRequest httpServletRequest, HttpSession httpSession) {
         return home(model, httpServletRequest, httpSession);
     }

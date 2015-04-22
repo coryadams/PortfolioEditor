@@ -77,13 +77,13 @@ public class EquityController {
             equityService.saveOrUpdateEquity(equity);
         }
         model.addAttribute("equities", equityService.findAll());
-        return "equity";
+        return "/equity";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@ModelAttribute Equity equity, HttpServletRequest request, Model model) {
         equityService.deleteHEquity(equity);
         model.addAttribute("equities", equityService.findAll());
-        return "equity";
+        return "/equity";
     }
 }

@@ -88,15 +88,20 @@
 
 <script type="text/javascript">
     /*<![CDATA[*/
+
+    function getContextPath() {
+        return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+    }
+
     <!-- Handle Edit -->
     function handleEdit(id) {
-        var url = "/bond/" + id;
+        var url = getContextPath() + "/bond/" + id;
         window.location.href = url;
     }
 
     <!-- Handle Create -->
     function handleCreate() {
-        var url = "/bond/0";
+        var url = getContextPath() + "/bond/0";
         window.location.href = url;
     }
 
