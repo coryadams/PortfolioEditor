@@ -56,6 +56,11 @@
                                 <p class="help-block">The Ticker Symbol</p>
                             </div>
                             <div class="form-group">
+                                <label>Allocation Percentage</label>
+                                <input type="text" class="form-control" th:field="*{allocationPercentage}" placeholder="AllocationPercentage"/>
+                                <p class="help-block">The Allocation Percentage</p>
+                            </div>
+                            <div class="form-group">
                                 <label for="select.exchange.id">Exchanges</label> <br/>
                                 <input th:if="${equity.id != null}" type="text" class="form-control" th:field="*{exchange.identifier}" readonly="true"/>
                                 <select th:if="${equity.id == null}" id="select.exchange.id" multiple="false" name="select.exchange.id">
