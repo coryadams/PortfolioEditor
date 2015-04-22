@@ -25,7 +25,7 @@ INSERT INTO equity_asset(id, name, ticker, exchange_id)
 INSERT INTO option_asset(id, name, contract_name, underlying_symbol, expiration_date, option_type, strike_price, exchange_id)
  values (1, "Apple Inc.", "AAPL150529C00122000", "AAPL", "2015-5-29", "CALL", 122.00, 4);
 INSERT INTO option_asset(id, name, contract_name, underlying_symbol, expiration_date, option_type, strike_price, exchange_id)
- values (2, "Apple Inc.", "AAPL150529P00118000", "AAPL", "2015-5-29", "CALL", 118.00, 4);
+ values (2, "Apple Inc.", "AAPL150529P00118000", "AAPL", "2015-5-29", "PUT", 118.00, 4);
 INSERT INTO option_asset(id, name, contract_name, underlying_symbol, expiration_date, option_type, strike_price, exchange_id)
  values (3, "International Business Machines Corp.", "IBM150501P00149000", "IBM", "2015-5-1", "PUT", 149.00, 4);
 
