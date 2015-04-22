@@ -41,16 +41,27 @@
         </ol>
 
         <br/>
+        <p></p>
         <table class="table table-bordered table-striped datatable" id="table-1">
-            <thead>
+            <form action="#" th:action="@{/portfolio/allocation/equity/edit/}" th:object="${portfolio}" method="post">
+                <input type="hidden" id="id" th:field="${portfolio.id}"/>
+                <thead>
             <tr>
-                <th colspan="4">Equities</th>
+                <th colspan="5">
+                    <button type="submit" class="btn btn-success">
+                        <i class="entypo-list-add icon-white"></i>&nbsp;Modify Equity Allocations
+                    </button>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="5">Equities</th>
             </tr>
             <tr>
                 <th>Name</th>
                 <th>Ticker</th>
                 <th>Exchange</th>
                 <th>Allocation %</th>
+                <th>Checked to Include</th>
             </tr>
             </thead>
             <tbody class='container'>
@@ -59,19 +70,30 @@
                 <td th:text="${equity.ticker}"/>
                 <td th:text="${equity.exchange.identifier}"/>
                 <td th:text="${equity.allocationPercentage} + '%'"/>
+                <td>
+                    <input type="checkbox"
+                           name="equities_checked"
+                           th:value="${equity.id}"
+                           th:checked="${#lists.contains(portfolio.currentAssetAllocation.equities, equity)}" />
+                </td>
             </tr>
-            <th colspan="4">
-                <button class="btn btn-success" onclick="handleEquityAllocations()">
-                    <i class="entypo-list-add icon-white"></i>&nbsp;Modify Equity Allocations
-                </button>
-            </th>
             </tbody>
+            </form>
         </table>
         <p></p>
         <table class="table table-bordered table-striped datatable" id="table-2">
-            <thead>
+            <form action="#" th:action="@{/portfolio/allocation/option/edit/}" th:object="${portfolio}" method="post">
+                <input type="hidden" id="id" th:field="${portfolio.id}"/>
+                <thead>
             <tr>
-                <th colspan="8">Options</th>
+                <th colspan="9">
+                    <button type="submit" class="btn btn-success">
+                        <i class="entypo-list-add icon-white"></i>&nbsp;Modify Option Allocations
+                    </button>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="9">Options</th>
             </tr>
             <tr>
                 <th>Name</th>
@@ -82,6 +104,7 @@
                 <th>Strike</th>
                 <th>Exchange</th>
                 <th>Allocation %</th>
+                <th>Checked to Include</th>
             </tr>
             </thead>
 
@@ -95,19 +118,29 @@
                 <td th:text="${option.strikePrice}"/>
                 <td th:text="${option.exchange.identifier}"/>
                 <td th:text="${option.allocationPercentage} + '%'"/>
+                <td>
+                    <input type="checkbox"
+                           name="options_checked"
+                           th:value="${option.id}"
+                           th:checked="${#lists.contains(portfolio.currentAssetAllocation.options, option)}" />
+                </td>
             </tr>
-            <th colspan="8">
-                <button class="btn btn-success" onclick="handleOptionAllocations()">
-                    <i class="entypo-list-add icon-white"></i>&nbsp;Modify Option Allocations
-                </button>
-            </th>
             </tbody>
+                </form>
         </table>
         <p></p>
         <table class="table table-bordered table-striped datatable" id="table-3">
-            <thead>
+            <form action="#" th:action="@{/portfolio/allocation/bond/edit/}" th:object="${portfolio}" method="post">
+                <input type="hidden" id="id" th:field="${portfolio.id}"/><thead>
             <tr>
-                <th colspan="8">Bonds</th>
+                <th colspan="9">
+                    <button class="btn btn-success">
+                        <i class="entypo-list-add icon-white"></i>&nbsp;Modify Bond Allocations
+                    </button>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="9">Bonds</th>
             </tr>
             <tr>
                 <th>CUSIP</th>
@@ -118,6 +151,7 @@
                 <th>Rating</th>
                 <th>Exchange</th>
                 <th>Allocation %</th>
+                <th>Checked to Include</th>
             </tr>
             </thead>
 
@@ -131,19 +165,29 @@
                 <td th:text="${bond.rating}"/>
                 <td th:text="${bond.exchange.identifier}"/>
                 <td th:text="${bond.allocationPercentage} + '%'"/>
+                <td>
+                    <input type="checkbox"
+                           name="bonds_checked"
+                           th:value="${bond.id}"
+                           th:checked="${#lists.contains(portfolio.currentAssetAllocation.bonds, bond)}" />
+                </td>
             </tr>
-            <th colspan="8">
-                <button class="btn btn-success" onclick="handleBondAllocations()">
-                    <i class="entypo-list-add icon-white"></i>&nbsp;Modify Bond Allocations
-                </button>
-            </th>
         </tbody>
+        </form>
         </table>
         <p></p>
         <table class="table table-bordered table-striped datatable" id="table-4">
-            <thead>
+            <form action="#" th:action="@{/portfolio/allocation/future/edit/}" th:object="${portfolio}" method="post">
+                <input type="hidden" id="id" th:field="${portfolio.id}"/><thead>
             <tr>
-                <th colspan="6">Futures</th>
+                <th colspan="7">
+                    <button class="btn btn-success">
+                        <i class="entypo-list-add icon-white"></i>&nbsp;Modify Future Allocations
+                    </button>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="7">Futures</th>
             </tr>
             <tr>
                 <th>Category</th>
@@ -152,6 +196,7 @@
                 <th>Expiration Date</th>
                 <th>Exchange</th>
                 <th>Allocation %</th>
+                <th>Checked to Include</th>
             </tr>
             </thead>
 
@@ -163,13 +208,15 @@
                 <td th:text="${future.expirationDate}"/>
                 <td th:text="${future.exchange.identifier}"/>
                 <td th:text="${future.allocationPercentage} + '%'"/>
+                <td>
+                    <input type="checkbox"
+                           name="futures_checked"
+                           th:value="${future.id}"
+                           th:checked="${#lists.contains(portfolio.currentAssetAllocation.futures, future)}" />
+                </td>
             </tr>
-            <th colspan="6">
-                <button class="btn btn-success" onclick="handleFutureAllocations()">
-                    <i class="entypo-list-add icon-white"></i>&nbsp;Modify Future Allocations
-                </button>
-            </th>
             </tbody>
+            </form>
         </table>
         <p></p>
         <!-- Footer -->
@@ -179,31 +226,6 @@
 
 <script type="text/javascript">
     /*<![CDATA[*/
-    function getContextPath() {
-        return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
-    }
-
-    <!-- Handle Equity Allocation -->
-    function handleEquityAllocations() {
-        var url = getContextPath() + "/portfolio/equity/edit";
-        window.location.href = url;
-    }
-
-    <!-- Handle Option Allocation -->
-    function handleOptionAllocations() {
-        var url = getContextPath() + "/portfolio/option/edit";
-        window.location.href = url;
-    }
-    <!-- Handle Bond Allocation -->
-    function handleBondAllocations() {
-        var url = getContextPath() + "/portfolio/bond/edit";
-        window.location.href = url;
-    }
-    <!-- Handle Future Allocation -->
-    function handleFutureAllocations() {
-        var url = getContextPath() + "/portfolio/future/edit";
-        window.location.href = url;
-    }
 
     /*]]>*/
 </script>

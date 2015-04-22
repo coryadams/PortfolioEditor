@@ -1,9 +1,9 @@
 package com.companyx.platform.portfolio.management.web;
 
-import com.companyx.platform.portfolio.management.domain.Bond;
-import com.companyx.platform.portfolio.management.domain.Exchange;
-import com.companyx.platform.portfolio.management.domain.Portfolio;
+import com.companyx.platform.portfolio.management.domain.*;
 import com.companyx.platform.portfolio.management.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 @Controller
 @RequestMapping("/portfolio")
 public class PortfolioController {
+
+    private Logger log = LoggerFactory.getLogger(PortfolioController.class);
 
     @Autowired
     PortfolioService portfolioService;
@@ -35,6 +38,7 @@ public class PortfolioController {
 
     /**
      * Find entity
+     *
      * @param model
      * @param httpServletRequest
      * @return
@@ -42,56 +46,78 @@ public class PortfolioController {
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model, HttpServletRequest httpServletRequest) {
         Portfolio portfolio = portfolioService.findById(1L); // Hardcoded for 1 Portfolio
-        model.addAttribute("equities", portfolio.getCurrentAssetAllocation().getEquities());
-        model.addAttribute("options", portfolio.getCurrentAssetAllocation().getOptions());
-        model.addAttribute("bonds", portfolio.getCurrentAssetAllocation().getBonds());
-        model.addAttribute("futures", portfolio.getCurrentAssetAllocation().getFutures());
-        return "portfolio";
-    }
+        // Present all items and allow comparison to Allocations in Portfolio in the view
+        model.addAttribute("equities", equityService.findAll());
+        model.addAttribute("options", optionService.findAll());
+        model.addAttribute("bonds", bondService.findAll());
+        model.addAttribute("futures", futureService.findAll());
 
-    /**
-     * This can be used to list an entity or an ID of 0 or null can be passed in for
-     * create view.
-     * <p/>
-     * Return either edit or create which will use the same view.
-     *
-     * @param id
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String findEntity(@PathVariable("id") String id, Model model) {
-        Long entityId = (id != null) ? Long.parseLong(id) : new Long(0);
-        Portfolio portfolio = null;
-        if (entityId > 0) {
-            // Existing
-            portfolio = portfolioService.findById(entityId);
-        } else {
-            // New
-            portfolio = new Portfolio();
-        }
         model.addAttribute("portfolio", portfolio);
-        model.addAttribute("equityList", equityService.findAll());
-        model.addAttribute("optionList", optionService.findAll());
-        model.addAttribute("bondList", bondService.findAll());
-        model.addAttribute("futureList", futureService.findAll());
-        return "/portfolio-edit";
+        return "portfolio";
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String submit(@ModelAttribute Portfolio portfolio, HttpServletRequest request, Model model) {
-     //   String[] exchangeIds = request.getParameterValues("select.exchange.id");
-        // If new create else if exists update
-        if (portfolio.getId() != null && portfolio.getId() > 0) {
-            // Update
-            // Currently not allowed
-        } else {
-            // Create
-
-            portfolioService.saveOrUpdatePortfolio(portfolio);
+    @RequestMapping(value = "allocation/equity/edit/", method = RequestMethod.POST)
+    public String findEntityForAllocationUpdate(@ModelAttribute Portfolio portfolio, Model model, HttpServletRequest httpServletRequest) {
+        // Update state from the db
+        Portfolio portfolioExisting = portfolioService.findById(portfolio.getId());
+        Set<Equity> updatedEntities = new HashSet<Equity>();
+        String[] selectedIds = httpServletRequest.getParameterValues("equities_checked");
+        if (selectedIds != null) {
+            for (String selectedId : selectedIds) {
+                updatedEntities.add(equityService.findById(new Long(selectedId)));
+            }
         }
-        model.addAttribute("portfolios", portfolioService.findAll());
-        return "portfolio";
+        portfolioExisting.getCurrentAssetAllocation().setEquities(updatedEntities);
+        portfolioService.saveOrUpdatePortfolio(portfolioExisting);
+        return list(model, httpServletRequest);
+    }
+
+    @RequestMapping(value = "allocation/option/edit/", method = RequestMethod.POST)
+    public String findEntityForOptionAllocationUpdate(@ModelAttribute Portfolio portfolio, Model model, HttpServletRequest httpServletRequest) {
+        // Update state from the db
+        Portfolio portfolioExisting = portfolioService.findById(portfolio.getId());
+        Set<Option> updatedEntities = new HashSet<Option>();
+        String[] selectedIds = httpServletRequest.getParameterValues("options_checked");
+        if (selectedIds != null) {
+            for (String selectedId : selectedIds) {
+                updatedEntities.add(optionService.findById(new Long(selectedId)));
+            }
+        }
+        portfolioExisting.getCurrentAssetAllocation().setOptions(updatedEntities);
+        portfolioService.saveOrUpdatePortfolio(portfolioExisting);
+        return list(model, httpServletRequest);
+    }
+
+    @RequestMapping(value = "allocation/bond/edit/", method = RequestMethod.POST)
+    public String findEntityForBondAllocationUpdate(@ModelAttribute Portfolio portfolio, Model model, HttpServletRequest httpServletRequest) {
+        // Update state from the db
+        Portfolio portfolioExisting = portfolioService.findById(portfolio.getId());
+        Set<Bond> updatedEntities = new HashSet<Bond>();
+        String[] selectedIds = httpServletRequest.getParameterValues("bonds_checked");
+        if (selectedIds != null) {
+            for (String selectedId : selectedIds) {
+                updatedEntities.add(bondService.findById(new Long(selectedId)));
+            }
+        }
+        portfolioExisting.getCurrentAssetAllocation().setBonds(updatedEntities);
+        portfolioService.saveOrUpdatePortfolio(portfolioExisting);
+        return list(model, httpServletRequest);
+    }
+
+    @RequestMapping(value = "allocation/future/edit/", method = RequestMethod.POST)
+    public String findEntityForFutureAllocationUpdate(@ModelAttribute Portfolio portfolio, Model model, HttpServletRequest httpServletRequest) {
+        // Update state from the db
+        Portfolio portfolioExisting = portfolioService.findById(portfolio.getId());
+        Set<Future> updatedEntities = new HashSet<Future>();
+        String[] selectedIds = httpServletRequest.getParameterValues("futures_checked");
+        if (selectedIds != null) {
+            for (String selectedId : selectedIds) {
+                updatedEntities.add(futureService.findById(new Long(selectedId)));
+            }
+        }
+        portfolioExisting.getCurrentAssetAllocation().setFutures(updatedEntities);
+        portfolioService.saveOrUpdatePortfolio(portfolioExisting);
+        return list(model, httpServletRequest);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
