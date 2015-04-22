@@ -26,44 +26,40 @@
             <div class="col-sm-3">
                 <div class="tile-stats tile-red">
                     <div class="icon"><i class="entypo-users"></i></div>
-                    <div class="num" data-start="0" th:attr="data-end=*{totalNamespaces}" data-postfix=""
+                    <div class="num" data-start="0" th:attr="data-end=*{totalEquities}" data-postfix=""
                          data-duration="1500" data-delay="0">0
                     </div>
-                    <h3>Total Equitiess</h3>
-
-                    <p></p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="tile-stats tile-green">
-                    <div class="icon"><i class="entypo-database"></i></div>
-                    <div class="num" data-start="0" th:attr="data-end=*{totalQueues}" data-postfix=""
-                         data-duration="1500" data-delay="600">0
-                    </div>
-                    <h3>Total Bondss</h3>
-
+                    <h3>Total Equities</h3>
                     <p></p>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="tile-stats tile-aqua">
                     <div class="icon"><i class="entypo-chat"></i></div>
-                    <div class="num" data-start="0" th:attr="data-end=*{totalTopics}" data-postfix=""
+                    <div class="num" data-start="0" th:attr="data-end=*{totalOptions}" data-postfix=""
                          data-duration="1500" data-delay="1200">0
                     </div>
                     <h3>Total Options</h3>
-
+                    <p></p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="tile-stats tile-green">
+                    <div class="icon"><i class="entypo-database"></i></div>
+                    <div class="num" data-start="0" th:attr="data-end=*{totalBonds}" data-postfix=""
+                         data-duration="1500" data-delay="600">0
+                    </div>
+                    <h3>Total Bonds</h3>
                     <p></p>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="tile-stats tile-blue">
                     <div class="icon"><i class="entypo-rss"></i></div>
-                    <div class="num" data-start="0" th:attr="data-end=*{totalSubscriptions}" data-postfix=""
+                    <div class="num" data-start="0" th:attr="data-end=*{totalFutures}" data-postfix=""
                          data-duration="1500" data-delay="1800">0
                     </div>
                     <h3>Total Futures</h3>
-
                     <p></p>
                 </div>
             </div>
@@ -73,46 +69,9 @@
 
         <div class="row">
             <div class="col-sm-8">
-                <div class="panel panel-primary" id="charts_env">
-                    <div class="panel-heading">
-                        <div class="panel-title">Message Volume by Queue</div>
-                        <div class="panel-options">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#line-chart" data-toggle="tab">Line Charts</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="line-chart">
-                                <div id="line-chart-demo" class="morrischart" style="height: 300px"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="content">
+                Edit Portfolios and Assets by using the left sidebar menu.
             </div>
-            <div class="col-sm-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <h4>
-                                Real Time Stats
-                                <br/>
-                                <small>Current Message Volume</small>
-                            </h4>
-                        </div>
-                        <div class="panel-options">
-                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-                            <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-                        </div>
-                    </div>
-                    <div class="panel-body no-padding">
-                        <div id="rickshaw-chart-demo">
-                            <div id="rickshaw-legend"></div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
         <br/>
@@ -126,91 +85,7 @@
 </div>
 <script type="text/javascript">
     /*<![CDATA[*/
-    jQuery(document).ready(function ($) {
-        // Line Charts
-        var line_chart_demo = $("#line-chart-demo");
 
-        var line_chart = Morris.Line({
-            element: 'line-chart-demo',
-            data: [
-                { y: '2014-10-12', a: 1000, b: 905 },
-                { y: '2014-10-13', a: 750, b: 605 },
-                { y: '2014-10-14', a: 500, b: 600 },
-                { y: '2014-10-15', a: 750, b: 850 },
-                { y: '2014-10-16', a: 500, b: 450 },
-                { y: '2014-10-17', a: 750, b: 650 },
-                { y: '2014-10-18', a: 800, b: 900 }
-            ],
-            xkey: 'y',
-            ykeys: ['a', 'b'],
-            labels: ['riskQueueA Avg Vol', 'riskQueueB Avg Vol'],
-            redraw: true
-        });
-
-        line_chart_demo.parent().attr('style', '');
-
-        // Rickshaw
-        var seriesData = [
-            [],
-            []
-        ];
-
-        var random = new Rickshaw.Fixtures.RandomData(50);
-
-        for (var i = 0; i < 50; i++) {
-            random.addData(seriesData);
-        }
-
-        var graph = new Rickshaw.Graph({
-            element: document.getElementById("rickshaw-chart-demo"),
-            height: 193,
-            renderer: 'area',
-            stroke: false,
-            preserve: true,
-            series: [
-                {
-                    color: '#73c8ff',
-                    data: seriesData[0],
-                    name: 'riskQueueB'
-                },
-                {
-                    color: '#e0f2ff',
-                    data: seriesData[1],
-                    name: 'riskQueueA'
-                }
-            ]
-        });
-
-        graph.render();
-
-        var hoverDetail = new Rickshaw.Graph.HoverDetail({
-            graph: graph,
-            xFormatter: function (x) {
-                return new Date(x * 1000).toString();
-            }
-        });
-
-        var legend = new Rickshaw.Graph.Legend({
-            graph: graph,
-            element: document.getElementById('rickshaw-legend')
-        });
-
-        var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight({
-            graph: graph,
-            legend: legend
-        });
-
-        setInterval(function () {
-            random.removeData(seriesData);
-            random.addData(seriesData);
-            graph.update();
-
-        }, 500);
-    });
-
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
     /*]]>*/
 </script>
 <th:block th:include="fragments/index-footer-links :: links"/>
