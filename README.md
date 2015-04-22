@@ -7,8 +7,9 @@ are provided by the Bootstrap project with Javascript used to provide some UI fu
 The JPA SOR uses mySQL.
 
 The application provides a UI to manage several types of assets including; Equities, Options, Bonds and Futures.
-Additionally Portfolios can be created which allow adding and removing of the aforementioned assets.  A Task
-will run on a daily basis after market close which will snapshot each Portfolios asset state into a table called
+Additionally Portfolios can be created which allow adding and removing of the aforementioned assets.
+
+A Task will run on a daily basis after market close which will snapshot each Portfolios asset state into a table called
 daily_asset_allocation.
 
 Daily asset allocations can be viewed for a Portfolio using a date range.
