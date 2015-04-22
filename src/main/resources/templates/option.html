@@ -51,6 +51,7 @@
                 <th>Exp Date</th>
                 <th>Type</th>
                 <th>Strike</th>
+                <th>Quantity</th>
                 <th>Exchange</th>
             </tr>
             </thead>
@@ -63,6 +64,7 @@
                 <td th:text="${option.expirationDate}"/>
                 <td th:text="${option.optionType}"/>
                 <td th:text="${option.strikePrice}"/>
+                <td th:text="${option.allocationPercentage} + '%'"/>
                 <td th:text="${option.exchange.identifier}"/>
                 <!--<td>-->
                     <!--<button class="btn btn-primary edit"-->

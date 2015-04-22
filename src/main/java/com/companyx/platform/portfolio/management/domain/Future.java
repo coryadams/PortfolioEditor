@@ -24,6 +24,9 @@ public class Future {
     @Column(name = "expiration_date")
     private Date expirationDate;
 
+    @Column(name = "allocation_percentage")
+    private Double allocationPercentage;
+
     @OneToOne
     @JoinColumn(name = "exchange_id")
     private Exchange exchange;
@@ -36,6 +39,7 @@ public class Future {
                 ", product='" + product + '\'' +
                 ", symbol='" + symbol + '\'' +
                 ", expirationDate=" + expirationDate +
+                ", allocationPercentage=" + allocationPercentage +
                 ", exchange=" + exchange +
                 '}';
     }
@@ -78,6 +82,14 @@ public class Future {
 
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public Double getAllocationPercentage() {
+        return allocationPercentage;
+    }
+
+    public void setAllocationPercentage(Double allocationPercentage) {
+        this.allocationPercentage = allocationPercentage;
     }
 
     public Exchange getExchange() {

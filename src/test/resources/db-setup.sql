@@ -53,6 +53,7 @@ CREATE TABLE equity_asset
   id        BIGINT NOT NULL AUTO_INCREMENT,
   name      VARCHAR(75),
   ticker VARCHAR(8) NOT NULL,
+  allocation_percentage    DECIMAL(4, 2),
   exchange_id BIGINT NOT NULL,
   FOREIGN KEY (exchange_id) REFERENCES exchange (id),
   PRIMARY KEY (id)
@@ -69,6 +70,7 @@ CREATE TABLE option_asset
   expiration_date DATE NOT NULL,
   option_type   VARCHAR(4) NOT NULL,
   strike_price  DECIMAL(6,2) NOT NULL,
+  allocation_percentage    DECIMAL(4, 2),
   exchange_id BIGINT NOT NULL,
   FOREIGN KEY (exchange_id) REFERENCES exchange (id),
   PRIMARY KEY (id)
@@ -85,6 +87,7 @@ CREATE TABLE bond_asset
   coupon      DECIMAL(6,2),
   maturity_date  DATE,
   rating      VARCHAR(15),
+  allocation_percentage    DECIMAL(4, 2),
   exchange_id BIGINT NOT NULL,
   FOREIGN KEY (exchange_id) REFERENCES exchange (id),
   PRIMARY KEY (id)
@@ -99,6 +102,7 @@ CREATE TABLE future_asset
   product VARCHAR(55),
   symbol VARCHAR(6),
   expiration_date  DATE,
+  allocation_percentage    DECIMAL(4, 2),
   exchange_id BIGINT NOT NULL,
   FOREIGN KEY (exchange_id) REFERENCES exchange (id),
   PRIMARY KEY (id)

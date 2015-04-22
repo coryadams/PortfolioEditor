@@ -31,6 +31,9 @@ public class Bond {
     @Column(name = "rating", length = 15)
     private String rating;
 
+    @Column(name = "allocation_percentage")
+    private Double allocationPercentage;
+
     @OneToOne
     @JoinColumn(name = "exchange_id")
     private Exchange exchange;
@@ -45,6 +48,7 @@ public class Bond {
                 ", coupon=" + coupon +
                 ", maturityDate=" + maturityDate +
                 ", rating='" + rating + '\'' +
+                ", allocationPercentage=" + allocationPercentage +
                 ", exchange=" + exchange +
                 '}';
     }
@@ -103,6 +107,14 @@ public class Bond {
 
     public void setRating(String rating) {
         this.rating = rating;
+    }
+
+    public Double getAllocationPercentage() {
+        return allocationPercentage;
+    }
+
+    public void setAllocationPercentage(Double allocationPercentage) {
+        this.allocationPercentage = allocationPercentage;
     }
 
     public Exchange getExchange() {

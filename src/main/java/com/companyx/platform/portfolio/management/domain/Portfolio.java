@@ -19,7 +19,7 @@ public class Portfolio {
     @Column(name = "description", length = 256)
     private String description;
 
-    @OneToOne(cascade={CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @OneToOne(cascade={CascadeType.MERGE}, fetch = FetchType.EAGER, mappedBy =  "portfolio")
     private CurrentAssetAllocation currentAssetAllocation;
 
     @OneToMany(cascade={CascadeType.MERGE}, fetch = FetchType.EAGER, mappedBy = "portfolio")

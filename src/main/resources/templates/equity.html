@@ -47,6 +47,7 @@
             <tr>
                 <th>Name</th>
                 <th>Ticker</th>
+                <th>Quantity</th>
                 <th>Exchange</th>
             </tr>
             </thead>
@@ -55,6 +56,7 @@
             <tr th:each="equity : ${equities}">
                 <td th:text="${equity.name}"/>
                 <td th:text="${equity.ticker}"/>
+                <td th:text="${equity.allocationPercentage} + '%'"/>
                 <td th:text="${equity.exchange.identifier}"/>
                 <!--<td>-->
                     <!--<button class="btn btn-primary edit"-->

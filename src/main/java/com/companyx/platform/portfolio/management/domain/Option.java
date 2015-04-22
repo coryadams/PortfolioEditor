@@ -30,6 +30,9 @@ public class Option {
     @Column(name = "strike_price")
     private Double strikePrice;
 
+    @Column(name = "allocation_percentage")
+    private Double allocationPercentage;
+
     @OneToOne
     @JoinColumn(name = "exchange_id")
     private Exchange exchange;
@@ -44,6 +47,7 @@ public class Option {
                 ", expirationDate='" + expirationDate + '\'' +
                 ", optionType=" + optionType +
                 ", strikePrice=" + strikePrice +
+                ", allocationPercentage=" + allocationPercentage +
                 ", exchange=" + exchange +
                 '}';
     }
@@ -102,6 +106,14 @@ public class Option {
 
     public void setStrikePrice(Double strikePrice) {
         this.strikePrice = strikePrice;
+    }
+
+    public Double getAllocationPercentage() {
+        return allocationPercentage;
+    }
+
+    public void setAllocationPercentage(Double allocationPercentage) {
+        this.allocationPercentage = allocationPercentage;
     }
 
     public Exchange getExchange() {

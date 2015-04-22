@@ -51,6 +51,7 @@
                 <th>Coupon</th>
                 <th>Maturity Date</th>
                 <th>Rating</th>
+                <th>Quantity</th>
                 <th>Exchange</th>
             </tr>
             </thead>
@@ -63,6 +64,7 @@
                 <td th:text="${bond.coupon}"/>
                 <td th:text="${bond.maturityDate}"/>
                 <td th:text="${bond.rating}"/>
+                <td th:text="${bond.allocationPercentage} + '%'"/>
                 <td th:text="${bond.exchange.identifier}"/>
                 <!--<td>-->
                     <!--<button class="btn btn-primary edit"-->

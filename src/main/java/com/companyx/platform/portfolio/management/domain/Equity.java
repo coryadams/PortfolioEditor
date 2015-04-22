@@ -17,6 +17,10 @@ public class Equity {
     @Column(name = "ticker", length = 8)
     private String ticker;
 
+    @Column(name = "allocation_percentage")
+    private Double allocationPercentage;
+
+
     @OneToOne
     @JoinColumn(name = "exchange_id")
     private Exchange exchange;
@@ -27,6 +31,7 @@ public class Equity {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", ticker='" + ticker + '\'' +
+                ", allocationPercentage=" + allocationPercentage +
                 ", exchange=" + exchange +
                 '}';
     }
@@ -53,6 +58,14 @@ public class Equity {
 
     public void setTicker(String ticker) {
         this.ticker = ticker;
+    }
+
+    public Double getAllocationPercentage() {
+        return allocationPercentage;
+    }
+
+    public void setAllocationPercentage(Double allocationPercentage) {
+        this.allocationPercentage = allocationPercentage;
     }
 
     public Exchange getExchange() {

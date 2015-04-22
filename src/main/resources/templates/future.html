@@ -49,6 +49,7 @@
                 <th>Product</th>
                 <th>Symbol</th>
                 <th>Expiration Date</th>
+                <th>Quantity</th>
                 <th>Exchange</th>
             </tr>
             </thead>
@@ -59,6 +60,7 @@
                 <td th:text="${future.product}"/>
                 <td th:text="${future.symbol}"/>
                 <td th:text="${future.expirationDate}"/>
+                <td th:text="${future.allocationPercent} + '%'"/>
                 <td th:text="${future.exchange.identifier}"/>
                 <!--<td>-->
                     <!--<button class="btn btn-primary edit"-->
