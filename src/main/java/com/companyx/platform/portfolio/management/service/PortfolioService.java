@@ -32,7 +32,7 @@ public class PortfolioService {
      *
      * Hardcoded to use Portfolio.id == 1 as the POC supports only one Portfolio
      */
-    @Scheduled(cron = "00 00 16 * * MON-FRI")
+    @Scheduled(cron = "00 00 19 * * MON-FRI")
     void copyAllocationsToDailyAllocationTask() {
         log.info("Firing copyAllocationsToDailyAllocationTask");
         Portfolio portfolio = findById(1L); // Hardcoded to the first Portfolio
