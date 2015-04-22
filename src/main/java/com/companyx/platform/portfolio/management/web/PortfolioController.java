@@ -41,10 +41,11 @@ public class PortfolioController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model, HttpServletRequest httpServletRequest) {
-        model.addAttribute("equities", equityService.findAll());
-        model.addAttribute("options", optionService.findAll());
-        model.addAttribute("bonds", bondService.findAll());
-        model.addAttribute("futures", futureService.findAll());
+        Portfolio portfolio = portfolioService.findById(1L); // Hardcoded for 1 Portfolio
+        model.addAttribute("equities", portfolio.getCurrentAssetAllocation().getEquities());
+        model.addAttribute("options", portfolio.getCurrentAssetAllocation().getOptions());
+        model.addAttribute("bonds", portfolio.getCurrentAssetAllocation().getBonds());
+        model.addAttribute("futures", portfolio.getCurrentAssetAllocation().getFutures());
         return "portfolio";
     }
 
@@ -87,7 +88,7 @@ public class PortfolioController {
         } else {
             // Create
 
-            portfolioService.saveOrUpdateBond(portfolio);
+            portfolioService.saveOrUpdatePortfolio(portfolio);
         }
         model.addAttribute("portfolios", portfolioService.findAll());
         return "portfolio";

@@ -3,6 +3,7 @@ package com.companyx.platform.portfolio.management.domain;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * This represents the current allocation of Assets by Portfolio.
@@ -24,35 +25,34 @@ public class CurrentAssetAllocation {
     @JoinColumn(name = "portfolio_id")
     private Portfolio portfolio;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="current_equity",
             joinColumns=@JoinColumn(name="current_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="equity_id"))
-    List<Equity> equities;
+    Set<Equity> equities;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="current_option",
             joinColumns=@JoinColumn(name="current_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="option_id"))
-    List<Option> options;
+    Set<Option> options;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="current_future",
             joinColumns=@JoinColumn(name="current_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="future_id"))
-    List<Future> futures;
+    Set<Future> futures;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="current_bond",
             joinColumns=@JoinColumn(name="current_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="bond_id"))
-    List<Bond> bonds;
+    Set<Bond> bonds;
 
     @Override
     public String toString() {
         return "CurrentAssetAllocation{" +
                 "id=" + id +
-                ", portfolio=" + portfolio +
                 ", equities=" + equities +
                 ", options=" + options +
                 ", futures=" + futures +
@@ -76,35 +76,35 @@ public class CurrentAssetAllocation {
         this.portfolio = portfolio;
     }
 
-    public List<Equity> getEquities() {
+    public Set<Equity> getEquities() {
         return equities;
     }
 
-    public void setEquities(List<Equity> equities) {
+    public void setEquities(Set<Equity> equities) {
         this.equities = equities;
     }
 
-    public List<Option> getOptions() {
+    public Set<Option> getOptions() {
         return options;
     }
 
-    public void setOptions(List<Option> options) {
+    public void setOptions(Set<Option> options) {
         this.options = options;
     }
 
-    public List<Future> getFutures() {
+    public Set<Future> getFutures() {
         return futures;
     }
 
-    public void setFutures(List<Future> futures) {
+    public void setFutures(Set<Future> futures) {
         this.futures = futures;
     }
 
-    public List<Bond> getBonds() {
+    public Set<Bond> getBonds() {
         return bonds;
     }
 
-    public void setBonds(List<Bond> bonds) {
+    public void setBonds(Set<Bond> bonds) {
         this.bonds = bonds;
     }
 }

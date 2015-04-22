@@ -30,32 +30,38 @@ public class DailyAssetAllocation {
     @JoinColumn(name = "portfolio_id")
     private Portfolio portfolio;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="daily_equity",
             joinColumns=@JoinColumn(name="daily_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="equity_id"))
-    List<Equity> equities;
+    Set<Equity> equities;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="daily_option",
             joinColumns=@JoinColumn(name="daily_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="option_id"))
-    List<Option> options;
+    Set<Option> options;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="daily_bond",
+            joinColumns=@JoinColumn(name="daily_asset_allocation_id"),
+            inverseJoinColumns=@JoinColumn(name="bond_id"))
+    Set<Bond> bonds;
+
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="daily_future",
             joinColumns=@JoinColumn(name="daily_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="future_id"))
-    List<Future> futures;
+    Set<Future> futures;
 
     @Override
     public String toString() {
         return "DailyAssetAllocation{" +
                 "id=" + id +
                 ", date=" + date +
-                ", portfolio=" + portfolio +
                 ", equities=" + equities +
                 ", options=" + options +
+                ", bonds=" + bonds +
                 ", futures=" + futures +
                 '}';
     }
@@ -84,27 +90,35 @@ public class DailyAssetAllocation {
         this.portfolio = portfolio;
     }
 
-    public List<Equity> getEquities() {
+    public Set<Equity> getEquities() {
         return equities;
     }
 
-    public void setEquities(List<Equity> equities) {
+    public void setEquities(Set<Equity> equities) {
         this.equities = equities;
     }
 
-    public List<Option> getOptions() {
+    public Set<Option> getOptions() {
         return options;
     }
 
-    public void setOptions(List<Option> options) {
+    public void setOptions(Set<Option> options) {
         this.options = options;
     }
 
-    public List<Future> getFutures() {
+    public Set<Bond> getBonds() {
+        return bonds;
+    }
+
+    public void setBonds(Set<Bond> bonds) {
+        this.bonds = bonds;
+    }
+
+    public Set<Future> getFutures() {
         return futures;
     }
 
-    public void setFutures(List<Future> futures) {
+    public void setFutures(Set<Future> futures) {
         this.futures = futures;
     }
 }
