@@ -4,7 +4,7 @@ package com.companyx.platform.portfolio.management.domain;
 public enum BondType {
 
     TREASURY,
-    MUNICPAL,
+    MUNICIPAL,
     CORPORATE,
     ZERO_COUPON;
 }

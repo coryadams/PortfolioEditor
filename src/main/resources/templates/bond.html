@@ -3,8 +3,12 @@
 <head th:replace="/fragments/head :: header"/>
 <body class="page-body" data-url="http://neon.dev">
 <div class="page-container">
+
     <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+
+
     <div class="main-content">
+
         <div class="row">
             <!-- Profile Info and Notifications -->
             <div class="col-md-6 col-sm-8 clearfix">
@@ -20,6 +24,7 @@
                 </ul>
             </div>
         </div>
+
         <hr/>
         <ol class="breadcrumb bc-3">
             <li>
@@ -29,68 +34,79 @@
                 <a href="/index.html">Administration</a>
             </li>
             <li class="active">
-                <strong>Topic</strong>
+                <strong>Bond</strong>
             </li>
             <li class="active">
                 <strong>List</strong>
             </li>
         </ol>
+
         <br/>
-        Connect URI Format: amqp://&lt;namespace&gt;/topic/&lt;topic name&gt;
-        <p></p>
         <table class="table table-bordered table-striped datatable" id="table-2">
             <thead>
             <tr>
-                <th>Topic Name</th>
-                <th>Namespace</th>
-                <th>&nbsp;</th>
+                <th>CUSIP</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Coupon</th>
+                <th>Maturity Date</th>
+                <th>Rating</th>
+                <th>Exchange</th>
             </tr>
             </thead>
+
             <tbody class='container'>
-            <tr th:each="topic : ${topics}">
-                <td ><a th:href="@{/topic/detail/{id}(id=${topic.id})} "><span th:text="|${topic.name}|"/></a></td>
-                <td th:text="${topic.namespace.name}"/>
-                <td>
-                    <button class="btn btn-primary edit"
-                            th:onclick="'javascript:handleEdit(\'' + ${topic.id} + '\');'">
-                        <i class="entypo-pencil icon-white"></i>&nbsp;Edit
-                    </button>
+            <tr th:each="bond : ${bonds}">
+                <td th:text="${bond.cusip}"/>
+                <td th:text="${bond.description}"/>
+                <td th:text="${bond.bondType}"/>
+                <td th:text="${bond.coupon}"/>
+                <td th:text="${bond.maturityDate}"/>
+                <td th:text="${bond.rating}"/>
+                <td th:text="${bond.exchange.identifier}"/>
+                <!--<td>-->
+                    <!--<button class="btn btn-primary edit"-->
+                            <!--th:onclick="'javascript:handleEdit(\'' + ${bond.id} + '\');'">-->
+                        <!--<i class="entypo-pencil icon-white"></i>&nbsp;Edit-->
+                    <!--</button>-->
                     <!--<button class="btn btn-primary delete"-->
-                            <!--th:onclick="'javascript:handleDelete(\'' + ${topic.id} + '\', \'' + ${topic.name} + '\');'">-->
+                            <!--th:onclick="'javascript:handleDelete(\'' + ${bond.id} + '\', \'' + ${bond.name} + '\');'">-->
                         <!--<i class="entypo-erase icon-white"></i>&nbsp;Delete-->
                     <!--</button>-->
-                </td>
+                <!--</td>-->
             </tr>
             </tbody>
         </table>
         <button class="btn btn-success" onclick="handleCreate()">
-            <i class="entypo-list-add icon-white"></i>&nbsp;New Topic
+            <i class="entypo-list-add icon-white"></i>&nbsp;New Bond
         </button>
         <br/>
         <!-- Footer -->
         <footer th:replace="/fragments/footer :: footer"/>
     </div>
 </div>
+
 <script type="text/javascript">
     /*<![CDATA[*/
     <!-- Handle Edit -->
     function handleEdit(id) {
-        var url = "/topic/" + id;
+        var url = "/bond/" + id;
         window.location.href = url;
     }
 
     <!-- Handle Create -->
     function handleCreate() {
-        var url = "/topic/0";
+        var url = "/bond/0";
         window.location.href = url;
     }
 
     <!-- Handle Delete Modal -->
-    function handleDelete(topic_id, topic_name) {
-        document.getElementById('id').value = topic_id;
-        document.getElementById('topic-name').innerHTML = topic_name;
+    function handleDelete(bond_id, bond_name) {
+        document.getElementById('id').value = bond_id;
+        document.getElementById('bond-name').innerHTML = bond_name;
         $('#deleteModal').modal('show');
     }
+
     /*]]>*/
 </script>
 
@@ -102,12 +118,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Topic</h4>
+                <h4 class="modal-title">Bond</h4>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete <label name="topic-name" id="topic-name" value=""/>?
+                Are you sure you want to delete <label name="bond-name" id="bond-name" value=""/>?
             </div>
-            <form action="#" th:action="@{/topic/delete}" th:object="${topic}" method="post">
+            <form action="#" th:action="@{/bond/delete}" th:object="${bond}" method="post">
                 <input type="hidden" name="id" id="id" value=""/>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -117,5 +133,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

@@ -13,7 +13,7 @@ public class Bond {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", length = 15)
+    @Column(name = "cusip", length = 15)
     private String cusip;
 
     @Column(name = "description", length = 256)

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: header"/>
+<body class="page-body" data-url="http://neon.dev">
+<div class="page-container">
+    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div class="main-content">
+        <div class="row">
+            <!-- Profile Info and Notifications -->
+            <div class="col-md-6 col-sm-8 clearfix">
+                <!--<div th:include="fragments/notifications :: notifications"/>-->
+            </div>
+            <!-- Raw Links -->
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+                <ul class="list-inline links-list pull-right">
+                    <li class="sep"></li>
+                    <li>
+                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr/>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+            </li>
+            <li>
+                <a href="/index.html">Administration</a>
+            </li>
+            <li class="active">
+                <a href="/option">Option</a>
+            </li>
+            <li class="active">
+                <strong>Edit</strong>
+            </li>
+        </ol>
+        <br/>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">&nbsp;Edit Option</div>
+                    <div class="panel-body">
+                        <form action="#" th:action="@{/option/edit}" th:object="${option}" method="post">
+                            <input type="hidden" id="id" th:field="${option.id}"/>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input th:if="${option.id == null}" type="text" class="form-control" th:field="*{name}" placeholder="Enter Option name"/>
+                                <p class="help-block">The name of your Option</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Contract Name</label>
+                                <input type="text" class="form-control" th:field="*{contractName}" placeholder="Contract Name"/>
+                                <p class="help-block">The Contract Name</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Underlying Symbol</label>
+                                <input type="text" class="form-control" th:field="*{underlyingSymbol}" placeholder="Underlying Symbol"/>
+                                <p class="help-block">The Underlying Symbol</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Expiration</label>
+                                <input type="text" class="form-control" th:field="*{expirationDate}" placeholder="Expiration Date"/>
+                                <p class="help-block">The Expiration Date</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Option Type</label>
+                                <select th:field="*{optionType}">
+                                    <option value="CALL">CALL</option>
+                                    <option value="PUT">PUT</option>
+                                </select>
+                                <p class="help-block">The Option Type</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Strike Price</label>
+                                <input type="text" class="form-control" th:field="*{strikePrice}" placeholder="Strike Price"/>
+                                <p class="help-block">The Strike Price</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="select.exchange.id">Exchanges</label> <br/>
+                                <input th:if="${option.id != null}" type="text" class="form-control" th:field="*{exchange.identifier}" readonly="true"/>
+                                <select th:if="${option.id == null}" id="select.exchange.id" multiple="false" name="select.exchange.id">
+                                    <option th:each="exchange : ${exchangeList}" th:value="${exchange.id}"
+                                            th:text="${exchange.identifier}"
+                                            th:selected="${option.exchange == exchange}"/>
+                                </select>
+                                <p class="help-block">Select Exchange for this Option</p>
+                            </div>
+                           <!--<button type="submit" class="btn btn-success" th:if="${equity.id != null}" >Edit</button>-->
+                            <label th:if="${option.id != null}">Edit not currently allowed.</label>
+                           <button type="submit" class="btn btn-success" th:if="${option.id == null}" >Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!-- Footer -->
+        <footer th:replace="/fragments/footer :: footer"/>
+    </div>
+</div>
+<th:block th:include="fragments/footer-links :: links"/>
+</body>
+</html>

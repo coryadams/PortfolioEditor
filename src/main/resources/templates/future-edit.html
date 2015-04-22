@@ -30,7 +30,7 @@
                 <a href="/index.html">Administration</a>
             </li>
             <li class="active">
-                <a href="/equity">Equity</a>
+                <a href="/future">Future</a>
             </li>
             <li class="active">
                 <strong>Edit</strong>
@@ -41,33 +41,43 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-info">
-                    <div class="panel-heading">&nbsp;Edit Equity</div>
+                    <div class="panel-heading">&nbsp;Edit Future</div>
                     <div class="panel-body">
-                        <form action="#" th:action="@{/equity/edit}" th:object="${equity}" method="post">
-                            <input type="hidden" id="id" th:field="${equity.id}"/>
+                        <form action="#" th:action="@{/future/edit}" th:object="${future}" method="post">
+                            <input type="hidden" id="id" th:field="${future.id}"/>
                             <div class="form-group">
-                                <label>Name</label>
-                                <input th:if="${equity.id == null}" type="text" class="form-control" th:field="*{name}" placeholder="Enter Equity name"/>
-                                <p class="help-block">The name of your Equity</p>
+                                <label>Category</label>
+                                <input type="text" class="form-control" th:field="*{category}" placeholder="Category"/>
+                                <p class="help-block">The Category</p>
                             </div>
                             <div class="form-group">
-                                <label>Ticker</label>
-                                <input type="text" class="form-control" th:field="*{ticker}" placeholder="Ticker Symbol"/>
-                                <p class="help-block">The Ticker Symbol</p>
+                                <label>Product</label>
+                                <input type="text" class="form-control" th:field="*{product}" placeholder="Product"/>
+                                <p class="help-block">The Product</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Symbol</label>
+                                <input type="text" class="form-control" th:field="*{symbol}" placeholder="Symobol"/>
+                                <p class="help-block">The Symbol</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Expiration date</label>
+                                <input type="text" class="form-control" th:field="*{expirationDate}" placeholder="Expiration Date"/>
+                                <p class="help-block">The Expiration Date</p>
                             </div>
                             <div class="form-group">
                                 <label for="select.exchange.id">Exchanges</label> <br/>
-                                <input th:if="${equity.id != null}" type="text" class="form-control" th:field="*{exchange.identifier}" readonly="true"/>
-                                <select th:if="${equity.id == null}" id="select.exchange.id" multiple="false" name="select.exchange.id">
+                                <input th:if="${future.id != null}" type="text" class="form-control" th:field="*{exchange.identifier}" readonly="true"/>
+                                <select th:if="${future.id == null}" id="select.exchange.id" multiple="false" name="select.exchange.id">
                                     <option th:each="exchange : ${exchangeList}" th:value="${exchange.id}"
                                             th:text="${exchange.identifier}"
-                                            th:selected="${equity.exchange == exchange}"/>
+                                            th:selected="${future.exchange == exchange}"/>
                                 </select>
-                                <p class="help-block">Select Exchange for this Equity</p>
+                                <p class="help-block">Select Exchange for this Future</p>
                             </div>
                            <!--<button type="submit" class="btn btn-success" th:if="${equity.id != null}" >Edit</button>-->
-                            <label th:if="${equity.id != null}">Edit not currently allowed.</label>
-                           <button type="submit" class="btn btn-success" th:if="${equity.id == null}" >Create</button>
+                            <label th:if="${future.id != null}">Edit not currently allowed.</label>
+                           <button type="submit" class="btn btn-success" th:if="${future.id == null}" >Create</button>
                         </form>
                     </div>
                 </div>

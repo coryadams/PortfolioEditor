@@ -2,8 +2,11 @@ package com.companyx.platform.portfolio.management.web;
 
 import com.companyx.platform.portfolio.management.domain.Equity;
 import com.companyx.platform.portfolio.management.domain.Exchange;
+import com.companyx.platform.portfolio.management.domain.Option;
+import com.companyx.platform.portfolio.management.domain.OptionType;
 import com.companyx.platform.portfolio.management.service.EquityService;
 import com.companyx.platform.portfolio.management.service.ExchangeService;
+import com.companyx.platform.portfolio.management.service.OptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
-@RequestMapping("/equity")
-public class EquityController {
+@RequestMapping("/option")
+public class OptionController {
 
     @Autowired
-    EquityService equityService;
+    OptionService optionService;
 
     @Autowired
     ExchangeService exchangeService;
@@ -32,8 +37,8 @@ public class EquityController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model, HttpServletRequest httpServletRequest) {
-        model.addAttribute("equities", equityService.findAll());
-        return "equity";
+        model.addAttribute("options", optionService.findAll());
+        return "option";
     }
 
     /**
@@ -49,41 +54,45 @@ public class EquityController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String findEntity(@PathVariable("id") String id, Model model) {
         Long entityId = (id != null) ? Long.parseLong(id) : new Long(0);
-        Equity equity = null;
+        Option option = null;
         if (entityId > 0) {
             // Existing
-            equity = equityService.findById(entityId);
+            option = optionService.findById(entityId);
         } else {
             // New
-            equity = new Equity();
+            option = new Option();
         }
-        model.addAttribute("equity", equity);
+        model.addAttribute("option", option);
         model.addAttribute("exchangeList", exchangeService.findAll());
-        return "/equity-edit";
+        return "/option-edit";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String submit(@ModelAttribute Equity equity, HttpServletRequest request, Model model) {
+    public String submit(@ModelAttribute Option option, HttpServletRequest request, Model model) {
         String[] exchangeIds = request.getParameterValues("select.exchange.id");
         // If new create else if exists update
-        if (equity.getId() != null && equity.getId() > 0) {
+        if (option.getId() != null && option.getId() > 0) {
             // Update
             // Currently not allowed
         } else {
             // Create
             Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds[0]));
-            equity.setExchange(exchange);
+            option.setExchange(exchange);
 
-            equityService.saveOrUpdateEquity(equity);
+            optionService.saveOrUpdateOption(option);
         }
-        model.addAttribute("equities", equityService.findAll());
-        return "equity";
+        List<String> optionTypes = new ArrayList<String>();
+        optionTypes.add(OptionType.CALL.toString());
+        optionTypes.add(OptionType.PUT.toString());
+        model.addAttribute("optionTypes", optionTypes);
+        model.addAttribute("options", optionService.findAll());
+        return "option";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String delete(@ModelAttribute Equity equity, HttpServletRequest request, Model model) {
-        equityService.deleteHEquity(equity);
-        model.addAttribute("equities", equityService.findAll());
-        return "equity";
+    public String delete(@ModelAttribute Option option, HttpServletRequest request, Model model) {
+        optionService.deleteOption(option);
+        model.addAttribute("options", optionService.findAll());
+        return "option";
     }
 }

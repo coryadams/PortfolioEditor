@@ -3,8 +3,12 @@
 <head th:replace="/fragments/head :: header"/>
 <body class="page-body" data-url="http://neon.dev">
 <div class="page-container">
+
     <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+
+
     <div class="main-content">
+
         <div class="row">
             <!-- Profile Info and Notifications -->
             <div class="col-md-6 col-sm-8 clearfix">
@@ -20,6 +24,7 @@
                 </ul>
             </div>
         </div>
+
         <hr/>
         <ol class="breadcrumb bc-3">
             <li>
@@ -29,67 +34,79 @@
                 <a href="/index.html">Administration</a>
             </li>
             <li class="active">
-                <strong>Bridge</strong>
+                <strong>Option</strong>
             </li>
             <li class="active">
                 <strong>List</strong>
             </li>
         </ol>
 
-        <p></p>
+        <br/>
         <table class="table table-bordered table-striped datatable" id="table-2">
             <thead>
             <tr>
-                <th>Bridge Name</th>
-                <th>Namespace</th>
-                <th>Queue</th>
-                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>Contract Name</th>
+                <th>Underlying</th>
+                <th>Exp Date</th>
+                <th>Type</th>
+                <th>Strike</th>
+                <th>Exchange</th>
             </tr>
             </thead>
+
             <tbody class='container'>
-            <tr th:each="bridge : ${bridges}">
-                <td ><span th:text="|${bridge.yamTopic}|"/>
-                <!--<td ><a th:href="@{/bridge/detail/{id}(id=${bridge.id})} "><span th:text="|${bridge.yamTopic}|"/></a>-->
-                </td>
-                <td th:text="${bridge.yamTopic}"/>
-                <td th:text="${bridge.queue.name}"/>
-                <td>
-                    <button class="btn btn-primary delete"
-                            th:onclick="'javascript:handleDelete(\'' + ${bridge.id} + '\', \'' + ${bridge.yamTopic} + '\');'">
-                        <i class="entypo-erase icon-white"></i>&nbsp;Delete
-                    </button>
-                </td>
+            <tr th:each="option : ${options}">
+                <td th:text="${option.name}"/>
+                <td th:text="${option.contractName}"/>
+                <td th:text="${option.underlyingSymbol}"/>
+                <td th:text="${option.expirationDate}"/>
+                <td th:text="${option.optionType}"/>
+                <td th:text="${option.strikePrice}"/>
+                <td th:text="${option.exchange.identifier}"/>
+                <!--<td>-->
+                    <!--<button class="btn btn-primary edit"-->
+                            <!--th:onclick="'javascript:handleEdit(\'' + ${option.id} + '\');'">-->
+                        <!--<i class="entypo-pencil icon-white"></i>&nbsp;Edit-->
+                    <!--</button>-->
+                    <!--<button class="btn btn-primary delete"-->
+                            <!--th:onclick="'javascript:handleDelete(\'' + ${option.id} + '\', \'' + ${option.name} + '\');'">-->
+                        <!--<i class="entypo-erase icon-white"></i>&nbsp;Delete-->
+                    <!--</button>-->
+                <!--</td>-->
             </tr>
             </tbody>
         </table>
         <button class="btn btn-success" onclick="handleCreate()">
-            <i class="entypo-list-add icon-white"></i>&nbsp;New Bridge
+            <i class="entypo-list-add icon-white"></i>&nbsp;New Option
         </button>
         <br/>
         <!-- Footer -->
         <footer th:replace="/fragments/footer :: footer"/>
     </div>
 </div>
+
 <script type="text/javascript">
     /*<![CDATA[*/
     <!-- Handle Edit -->
     function handleEdit(id) {
-        var url = "/bridge/" + id;
+        var url = "/option/" + id;
         window.location.href = url;
     }
 
     <!-- Handle Create -->
     function handleCreate() {
-        var url = "/bridge/0";
+        var url = "/option/0";
         window.location.href = url;
     }
 
     <!-- Handle Delete Modal -->
-    function handleDelete(bridge_id, bridge_name) {
-        document.getElementById('id').value = bridge_id;
-
+    function handleDelete(option_id, option_name) {
+        document.getElementById('id').value = option_id;
+        document.getElementById('option-name').innerHTML = option_name;
         $('#deleteModal').modal('show');
     }
+
     /*]]>*/
 </script>
 
@@ -101,12 +118,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Bridge</h4>
+                <h4 class="modal-title">Option</h4>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete <label name="bridge-name" id="bridge-name" value=""/>?
+                Are you sure you want to delete <label name="option-name" id="option-name" value=""/>?
             </div>
-            <form action="#" th:action="@{/bridge/delete}" th:object="${bridge}" method="post">
+            <form action="#" th:action="@{/option/delete}" th:object="${option}" method="post">
                 <input type="hidden" name="id" id="id" value=""/>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -116,5 +133,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
