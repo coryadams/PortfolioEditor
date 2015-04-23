@@ -67,13 +67,14 @@ public class EquityController {
         String[] exchangeIds = request.getParameterValues("select.exchange.id");
         // If new create else if exists update
         if (equity.getId() != null && equity.getId() > 0) {
-            // Update
-            // Currently not allowed
+            // Update the allocation
+            Equity existingEquity = equityService.findById(equity.getId());
+            existingEquity.setAllocationPercentage(equity.getAllocationPercentage());
+            equityService.saveOrUpdateEquity(existingEquity);
         } else {
             // Create
             Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds[0]));
             equity.setExchange(exchange);
-
             equityService.saveOrUpdateEquity(equity);
         }
         model.addAttribute("equities", equityService.findAll());

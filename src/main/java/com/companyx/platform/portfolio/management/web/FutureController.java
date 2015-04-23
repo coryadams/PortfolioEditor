@@ -67,13 +67,14 @@ public class FutureController {
         String[] exchangeIds = request.getParameterValues("select.exchange.id");
         // If new create else if exists update
         if (future.getId() != null && future.getId() > 0) {
-            // Update
-            // Currently not allowed
+            // Update the allocation
+            Future existingFuture = futureService.findById(future.getId());
+            existingFuture.setAllocationPercentage(future.getAllocationPercentage());
+            futureService.saveOrUpdateFuture(existingFuture);
         } else {
             // Create
             Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds[0]));
             future.setExchange(exchange);
-
             futureService.saveOrUpdateFuture(future);
         }
         model.addAttribute("futures", futureService.findAll());

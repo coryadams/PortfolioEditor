@@ -45,6 +45,7 @@
         <table class="table table-bordered table-striped datatable" id="table-2">
             <thead>
             <tr>
+                <th>&nbsp;</th>
                 <th>Category</th>
                 <th>Product</th>
                 <th>Symbol</th>
@@ -56,6 +57,7 @@
 
             <tbody class='container'>
             <tr th:each="future : ${futures}">
+                <td><a th:href="@{/future/{id}(id=${future.id})}">Edit</a></td>
                 <td th:text="${future.category}"/>
                 <td th:text="${future.product}"/>
                 <td th:text="${future.symbol}"/>

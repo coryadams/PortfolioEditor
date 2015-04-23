@@ -80,8 +80,7 @@
                                 </select>
                                 <p class="help-block">Select Exchange for this Future</p>
                             </div>
-                           <!--<button type="submit" class="btn btn-success" th:if="${equity.id != null}" >Edit</button>-->
-                            <label th:if="${future.id != null}">Edit not currently allowed.</label>
+                           <button type="submit" class="btn btn-success" th:if="${future.id != null}" >Edit</button>
                            <button type="submit" class="btn btn-success" th:if="${future.id == null}" >Create</button>
                         </form>
                     </div>

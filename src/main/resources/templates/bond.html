@@ -45,6 +45,7 @@
         <table class="table table-bordered table-striped datatable" id="table-2">
             <thead>
             <tr>
+                <th>&nbsp;</th>
                 <th>CUSIP</th>
                 <th>Description</th>
                 <th>Type</th>
@@ -58,6 +59,7 @@
 
             <tbody class='container'>
             <tr th:each="bond : ${bonds}">
+                <td><a th:href="@{/bond/{id}(id=${bond.id})}">Edit</a></td>
                 <td th:text="${bond.cusip}"/>
                 <td th:text="${bond.description}"/>
                 <td th:text="${bond.bondType}"/>

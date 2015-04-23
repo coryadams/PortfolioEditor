@@ -47,7 +47,7 @@
                             <input type="hidden" id="id" th:field="${bond.id}"/>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input th:if="${bond.id == null}" type="text" class="form-control" th:field="*{cusip}" placeholder="Enter CUSIP"/>
+                                <input type="text" class="form-control" th:field="*{cusip}" placeholder="Enter CUSIP"/>
                                 <p class="help-block">The CUSIP of your Bond</p>
                             </div>
                             <div class="form-group">
@@ -72,8 +72,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Maturity Date</label>
-                                <input type="text" class="form-control" th:field="*{maturityDate}" placeholder="Maturity Date"/>
-                                <p class="help-block">The Maturity Date</p>
+                                <input type="text" class="form-control" th:field="*{maturityDate}" placeholder="Maturity Date (YYYY-MM-DD)"/>
+                                <p class="help-block">The Maturity Date (YYYY-MM-DD)</p>
                             </div>
                             <div class="form-group">
                                 <label>Rating</label>
@@ -95,8 +95,7 @@
                                 </select>
                                 <p class="help-block">Select Exchange for this Bond</p>
                             </div>
-                           <!--<button type="submit" class="btn btn-success" th:if="${equity.id != null}" >Edit</button>-->
-                            <label th:if="${bond.id != null}">Edit not currently allowed.</label>
+                           <button type="submit" class="btn btn-success" th:if="${bond.id != null}" >Edit</button>
                            <button type="submit" class="btn btn-success" th:if="${bond.id == null}" >Create</button>
                         </form>
                     </div>

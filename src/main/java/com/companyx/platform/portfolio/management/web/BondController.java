@@ -67,13 +67,14 @@ public class BondController {
         String[] exchangeIds = request.getParameterValues("select.exchange.id");
         // If new create else if exists update
         if (bond.getId() != null && bond.getId() > 0) {
-            // Update
-            // Currently not allowed
+            // Update the allocation
+            Bond existingBond = bondService.findById(bond.getId());
+            existingBond.setAllocationPercentage(bond.getAllocationPercentage());
+            bondService.saveOrUpdateBond(existingBond);
         } else {
             // Create
             Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds[0]));
             bond.setExchange(exchange);
-
             bondService.saveOrUpdateBond(bond);
         }
         model.addAttribute("bonds", bondService.findAll());

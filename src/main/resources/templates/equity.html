@@ -45,6 +45,7 @@
         <table class="table table-bordered table-striped datatable" id="table-2">
             <thead>
             <tr>
+                <th>&nbsp;</th>
                 <th>Name</th>
                 <th>Ticker</th>
                 <th>Quantity</th>
@@ -54,20 +55,11 @@
 
             <tbody class='container'>
             <tr th:each="equity : ${equities}">
+                <td><a th:href="@{/equity/{id}(id=${equity.id})}">Edit</a></td>
                 <td th:text="${equity.name}"/>
                 <td th:text="${equity.ticker}"/>
                 <td th:text="${equity.allocationPercentage} + '%'"/>
                 <td th:text="${equity.exchange.identifier}"/>
-                <!--<td>-->
-                    <!--<button class="btn btn-primary edit"-->
-                            <!--th:onclick="'javascript:handleEdit(\'' + ${equity.id} + '\');'">-->
-                        <!--<i class="entypo-pencil icon-white"></i>&nbsp;Edit-->
-                    <!--</button>-->
-                    <!--<button class="btn btn-primary delete"-->
-                            <!--th:onclick="'javascript:handleDelete(\'' + ${equity.id} + '\', \'' + ${equity.name} + '\');'">-->
-                        <!--<i class="entypo-erase icon-white"></i>&nbsp;Delete-->
-                    <!--</button>-->
-                <!--</td>-->
             </tr>
             </tbody>
         </table>

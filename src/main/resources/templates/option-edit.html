@@ -47,7 +47,7 @@
                             <input type="hidden" id="id" th:field="${option.id}"/>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input th:if="${option.id == null}" type="text" class="form-control" th:field="*{name}" placeholder="Enter Option name"/>
+                                <input type="text" class="form-control" th:field="*{name}" placeholder="Enter Option name"/>
                                 <p class="help-block">The name of your Option</p>
                             </div>
                             <div class="form-group">
@@ -62,8 +62,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Expiration</label>
-                                <input type="text" class="form-control" th:field="*{expirationDate}" placeholder="Expiration Date"/>
-                                <p class="help-block">The Expiration Date</p>
+                                <input type="text" class="form-control" th:field="*{expirationDate}" placeholder="Expiration Date (YYYY-MM-DD)"/>
+                                <p class="help-block">The Expiration Date (YYYY-MM-DD)</p>
                             </div>
                             <div class="form-group">
                                 <label>Option Type</label>
@@ -93,8 +93,7 @@
                                 </select>
                                 <p class="help-block">Select Exchange for this Option</p>
                             </div>
-                           <!--<button type="submit" class="btn btn-success" th:if="${equity.id != null}" >Edit</button>-->
-                            <label th:if="${option.id != null}">Edit not currently allowed.</label>
+                           <button type="submit" class="btn btn-success" th:if="${option.id != null}" >Edit</button>
                            <button type="submit" class="btn btn-success" th:if="${option.id == null}" >Create</button>
                         </form>
                     </div>

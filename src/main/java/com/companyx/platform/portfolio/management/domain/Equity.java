@@ -20,8 +20,7 @@ public class Equity {
     @Column(name = "allocation_percentage")
     private Double allocationPercentage;
 
-
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.REFRESH})
     @JoinColumn(name = "exchange_id")
     private Exchange exchange;
 

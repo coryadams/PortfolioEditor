@@ -72,13 +72,14 @@ public class OptionController {
         String[] exchangeIds = request.getParameterValues("select.exchange.id");
         // If new create else if exists update
         if (option.getId() != null && option.getId() > 0) {
-            // Update
-            // Currently not allowed
+            // Update the allocation
+            Option existingOption = optionService.findById(option.getId());
+            existingOption.setAllocationPercentage(option.getAllocationPercentage());
+            optionService.saveOrUpdateOption(existingOption);
         } else {
             // Create
             Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds[0]));
             option.setExchange(exchange);
-
             optionService.saveOrUpdateOption(option);
         }
         List<String> optionTypes = new ArrayList<String>();

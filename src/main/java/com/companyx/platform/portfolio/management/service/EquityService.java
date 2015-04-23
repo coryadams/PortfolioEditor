@@ -2,6 +2,7 @@ package com.companyx.platform.portfolio.management.service;
 
 import com.companyx.platform.portfolio.management.domain.Equity;
 import com.companyx.platform.portfolio.management.repository.EquityRepository;
+import com.companyx.platform.portfolio.management.repository.ExchangeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class EquityService {
     @Autowired
     EquityRepository equityRepository;
 
+    @Autowired
+    ExchangeRepository exchangeRepository;
+
     public Equity findById(Long id) {
         return equityRepository.findOne(id);
     }
@@ -26,7 +30,6 @@ public class EquityService {
         return equityRepository.findAll();
     }
 
-    @Transactional
     public void saveOrUpdateEquity(Equity equity) {
         equityRepository.save(equity);
     }

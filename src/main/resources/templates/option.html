@@ -45,6 +45,7 @@
         <table class="table table-bordered table-striped datatable" id="table-2">
             <thead>
             <tr>
+                <th>&nbsp;</th>
                 <th>Name</th>
                 <th>Contract Name</th>
                 <th>Underlying</th>
@@ -58,6 +59,7 @@
 
             <tbody class='container'>
             <tr th:each="option : ${options}">
+                <td><a th:href="@{/option/{id}(id=${option.id})}">Edit</a></td>
                 <td th:text="${option.name}"/>
                 <td th:text="${option.contractName}"/>
                 <td th:text="${option.underlyingSymbol}"/>
