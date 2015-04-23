@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: header"/>
+<body class="page-body" data-url="http://neon.dev">
+<div class="page-container">
+    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div class="main-content">
+        <div class="row">
+            <!-- Profile Info and Notifications -->
+            <div class="col-md-6 col-sm-8 clearfix">
+                <!--<div th:include="fragments/notifications :: notifications"/>-->
+            </div>
+            <!-- Raw Links -->
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+                <ul class="list-inline links-list pull-right">
+                    <li class="sep"></li>
+                    <li>
+                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr/>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+            </li>
+            <li>
+                <a href="/index.html">Administration</a>
+            </li>
+            <li class="active">
+                <strong>Report</strong>
+            </li>
+            <li class="active">
+                <strong>Allocation by Day</strong>
+            </li>
+        </ol>
+        <br/>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">&nbsp;Allocation by Day</div>
+                    <div class="panel-body">
+                        <form action="#" th:action="@{/report/allocation-by-day/submit}" th:object="${portfolio}" method="post">
+                            <input type="hidden" id="id" th:field="${portfolio.id}"/>
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input  type="text" placeholder="Click to show datepicker" name="date_picker" id="date_picker"/>
+                                <p class="help-block">Select your start date</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Days</label>
+                                <input type="text" name="days" id="days" placeholder="Number of Days"/>
+                                <p class="help-block">The Number of Days from your selected start date to include</p>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" th:if="${not #sets.isEmpty(dailyAssetAllocations)}">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">&nbsp;Report Allocation by Day</div>
+                    <div class="panel-body">
+
+                        <table class="table table-bordered table-striped datatable" id="table-2">
+                            <thead>
+                            </thead>
+                            <tbody class='container'>
+                            <tr th:each="dailyAllocations : ${dailyAssetAllocations}">
+                                <td th:inline="text">
+                                <p>Date: <span th:text="${dailyAllocations.date}"/></p>
+                                    <p><b>Equities:</b></p>
+                                        <th:block th:each="equity : ${dailyAllocations.equities}">
+                                        <p>
+                                           - <span th:text="${equity.ticker}"/>,
+                                           - <span th:text="${equity.name}"/>,
+                                           - <span th:text="${equity.allocationPercentage} + '%'"/>
+                                        </p>
+                                        </th:block>
+
+                                    <p><b>Options:</b></p>
+                                        <th:block th:each="option : ${dailyAllocations.options}">
+                                        <p>
+                                            - <span th:text="${option.contractName}"/>,
+                                            - <span th:text="${option.underlyingSymbol}"/>,
+                                            - <span th:text="${option.optionType}"/>,
+                                            - <span th:text="${option.allocationPercentage} + '%'"/>
+                                        </p>
+                                    </th:block>
+
+                                    <p><b>Bonds:</b></p>
+                                    <th:block th:each="bond : ${dailyAllocations.bonds}">
+                                        <p>
+                                            - <span th:text="${bond.cusip}"/>,
+                                            - <span th:text="${bond.description}"/>,
+                                            - <span th:text="${bond.allocationPercentage} + '%'"/>
+                                        </p>
+                                    </th:block>
+
+                                    <p><b>Futures:</b></p>
+                                    <th:block th:each="future : ${dailyAllocations.futures}">
+                                        <p>
+                                            - <span th:text="${future.category}"/>,
+                                            - <span th:text="${future.product}"/>,
+                                            - <span th:text="${future.symbol}"/>,
+                                            - <span th:text="${future.allocationPercentage} + '%'"/>
+                                        </p>
+                                    </th:block>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <!-- Footer -->
+        <footer th:replace="/fragments/footer :: footer"/>
+    </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $(document).ready(function () {
+
+        $('#date_picker').datepicker({
+            format: "dd/mm/yyyy"
+        });
+
+    });
+    /*]]>*/
+</script>
+<th:block th:include="fragments/footer-links :: links"/>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: header"/>
+<body class="page-body" data-url="http://neon.dev">
+<div class="page-container">
+    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div class="main-content">
+        <div class="row">
+            <!-- Profile Info and Notifications -->
+            <div class="col-md-6 col-sm-8 clearfix">
+                <!--<div th:include="fragments/notifications :: notifications"/>-->
+            </div>
+            <!-- Raw Links -->
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+                <ul class="list-inline links-list pull-right">
+                    <li class="sep"></li>
+                    <li>
+                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr/>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+            </li>
+            <li>
+                <a href="/index.html">Administration</a>
+            </li>
+            <li class="active">
+                <strong>Report</strong>
+            </li>
+            <li class="active">
+                <strong>Average Allocation for Day Range</strong>
+            </li>
+        </ol>
+        <br/>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">&nbsp;Average Allocation for Day Range</div>
+                    <div class="panel-body">
+                        <form action="#" th:action="@{/report/allocation-avg/submit}" th:object="${portfolio}" method="post">
+                            <input type="hidden" id="id" th:field="${portfolio.id}"/>
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input  type="text" placeholder="Click to show datepicker" name="start_date_picker" id="start_date_picker"/>
+                                <p class="help-block">Select your start date</p>
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input  type="text" placeholder="Click to show datepicker" name="end_date_picker" id="end_date_picker"/>
+                                <p class="help-block">Select your end date</p>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" th:if="${not #sets.isEmpty(reportItems)}">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">&nbsp;Report Average Allocation</div>
+                    <div class="panel-body">
+
+                        <table class="table table-bordered table-striped datatable" id="table-2">
+                            <thead>
+                            </thead>
+                            <tbody class='container'>
+                            <tr>
+                                <td th:inline="text">
+                                    <p>Date Range: <span th:text="${startDate}"/> - <span th:text="${endDate}"/> (DD/MM/YYYY)</p>
+                                    <th:block th:each="item : ${reportItems}">
+                                        <p>
+                                            - <span th:text="${item}"/>,
+                                        </p>
+                                    </th:block>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <!-- Footer -->
+        <footer th:replace="/fragments/footer :: footer"/>
+    </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $(document).ready(function () {
+
+        $('#start_date_picker').datepicker({
+            format: "dd/mm/yyyy"
+        });
+
+        $('#end_date_picker').datepicker({
+            format: "dd/mm/yyyy"
+        });
+
+
+    });
+    /*]]>*/
+</script>
+<th:block th:include="fragments/footer-links :: links"/>
+</body>
+</html>
