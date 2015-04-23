@@ -19853,7 +19853,7 @@ var ESCAPE = {"n":"\n", "f":"\f", "r":"\r", "t":"\t", "v":"\v", "'":"'", '"':'"'
  * @constructor
  */
 var Lexer = function (options) {
-  this.options = options;
+ this.options = options;
 };
 
 Lexer.prototype = {
