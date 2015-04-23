@@ -22,7 +22,7 @@ public class Portfolio {
     @OneToOne(cascade={CascadeType.MERGE}, fetch = FetchType.EAGER, mappedBy =  "portfolio")
     private CurrentAssetAllocation currentAssetAllocation;
 
-    @OneToMany(cascade={CascadeType.MERGE}, fetch = FetchType.EAGER, mappedBy = "portfolio")
+    @OneToMany(cascade={CascadeType.MERGE}, fetch = FetchType.LAZY, mappedBy = "portfolio")
     private List<DailyAssetAllocation> dailyAssetAllocations;
 
     @Override

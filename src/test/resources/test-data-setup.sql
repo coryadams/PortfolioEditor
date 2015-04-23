@@ -58,3 +58,35 @@ INSERT INTO current_option(current_asset_allocation_id, option_id) values(1, 2);
 
 INSERT INTO current_future(current_asset_allocation_id, future_id) values(1, 1);
 INSERT INTO current_future(current_asset_allocation_id, future_id) values(1, 2);
+
+# Portfolio daily allocations
+INSERT INTO daily_asset_allocation(id, date, portfolio_id) values(1, "2015-4-15", 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(1, 1);
+INSERT INTO daily_bond(daily_asset_allocation_id, bond_id) values(1, 1);
+
+INSERT INTO daily_asset_allocation(id, date, portfolio_id) values(2, "2015-4-16", 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(2, 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(2, 2);
+INSERT INTO daily_bond(daily_asset_allocation_id, bond_id) values(2, 1);
+INSERT INTO daily_option(daily_asset_allocation_id, option_id) values(2, 1);
+
+INSERT INTO daily_asset_allocation(id, date, portfolio_id) values(3, "2015-4-17", 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(3, 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(3, 2);
+
+INSERT INTO daily_asset_allocation(id, date, portfolio_id) values(4, "2015-4-18", 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(4, 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(4, 2);
+
+INSERT INTO daily_asset_allocation(id, date, portfolio_id) values(5, "2015-4-19", 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(5, 1);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(5, 2);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(5, 3);
+INSERT INTO daily_equity(daily_asset_allocation_id, equity_id) values(5, 4);
+INSERT INTO daily_bond(daily_asset_allocation_id, bond_id) values(5, 1);
+INSERT INTO daily_bond(daily_asset_allocation_id, bond_id) values(5, 3);
+INSERT INTO daily_option(daily_asset_allocation_id, option_id) values(5, 1);
+INSERT INTO daily_option(daily_asset_allocation_id, option_id) values(5, 2);
+INSERT INTO daily_future(daily_asset_allocation_id, future_id) values(5, 1);
+INSERT INTO daily_future(daily_asset_allocation_id, future_id) values(5, 2);
+

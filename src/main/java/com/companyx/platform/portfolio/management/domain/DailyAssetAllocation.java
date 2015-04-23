@@ -30,25 +30,25 @@ public class DailyAssetAllocation {
     @JoinColumn(name = "portfolio_id")
     private Portfolio portfolio;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name="daily_equity",
             joinColumns=@JoinColumn(name="daily_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="equity_id"))
     Set<Equity> equities;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name="daily_option",
             joinColumns=@JoinColumn(name="daily_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="option_id"))
     Set<Option> options;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name="daily_bond",
             joinColumns=@JoinColumn(name="daily_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="bond_id"))
     Set<Bond> bonds;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name="daily_future",
             joinColumns=@JoinColumn(name="daily_asset_allocation_id"),
             inverseJoinColumns=@JoinColumn(name="future_id"))
