@@ -1,18 +1,15 @@
 package com.companyx.platform.portfolio.management.web;
 
-import com.companyx.platform.portfolio.management.domain.Exchange;
 import com.companyx.platform.portfolio.management.domain.Bond;
-import com.companyx.platform.portfolio.management.service.ExchangeService;
+import com.companyx.platform.portfolio.management.domain.Exchange;
 import com.companyx.platform.portfolio.management.service.BondService;
+import com.companyx.platform.portfolio.management.service.ExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/bond")
@@ -26,12 +23,12 @@ public class BondController {
 
     /**
      * Find entity
+     *
      * @param model
-     * @param httpServletRequest
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String list(Model model, HttpServletRequest httpServletRequest) {
+    public String list(Model model) {
         model.addAttribute("bonds", bondService.findAll());
         return "bond";
     }
@@ -63,26 +60,19 @@ public class BondController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String submit(@ModelAttribute Bond bond, HttpServletRequest request, Model model) {
-        String[] exchangeIds = request.getParameterValues("select.exchange.id");
-        // If new create else if exists update
-        if (bond.getId() != null && bond.getId() > 0) {
-            // Update the allocation
-            Bond existingBond = bondService.findById(bond.getId());
-            existingBond.setAllocationPercentage(bond.getAllocationPercentage());
-            bondService.saveOrUpdateBond(existingBond);
-        } else {
-            // Create
-            Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds[0]));
-            bond.setExchange(exchange);
-            bondService.saveOrUpdateBond(bond);
-        }
+    public String submit(@ModelAttribute Bond bond, Model model,
+                         @RequestParam("select.exchange.id") List<String> exchangeIds) {
+
+        Exchange exchange = exchangeService.findById(Long.decode(exchangeIds.get(0)));
+        bond.setExchange(exchange);
+        bondService.saveOrUpdateBond(bond);
+
         model.addAttribute("bonds", bondService.findAll());
         return "bond";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String delete(@ModelAttribute Bond bond, HttpServletRequest request, Model model) {
+    public String delete(@ModelAttribute Bond bond, Model model) {
         bondService.deleteBond(bond);
         model.addAttribute("bonds", bondService.findAll());
         return "bond";

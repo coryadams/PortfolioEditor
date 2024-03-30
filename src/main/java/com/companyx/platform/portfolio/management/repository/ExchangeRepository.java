@@ -1,6 +1,5 @@
 package com.companyx.platform.portfolio.management.repository;
 
-import com.companyx.platform.portfolio.management.domain.Equity;
 import com.companyx.platform.portfolio.management.domain.Exchange;
 import org.springframework.data.repository.CrudRepository;
 

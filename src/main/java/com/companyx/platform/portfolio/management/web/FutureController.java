@@ -7,12 +7,9 @@ import com.companyx.platform.portfolio.management.service.FutureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/future")
@@ -26,12 +23,12 @@ public class FutureController {
 
     /**
      * Find entity
+     *
      * @param model
-     * @param httpServletRequest
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String list(Model model, HttpServletRequest httpServletRequest) {
+    public String list(Model model) {
         model.addAttribute("futures", futureService.findAll());
         return "future";
     }
@@ -63,26 +60,16 @@ public class FutureController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String submit(@ModelAttribute Future future, HttpServletRequest request, Model model) {
-        String[] exchangeIds = request.getParameterValues("select.exchange.id");
-        // If new create else if exists update
-        if (future.getId() != null && future.getId() > 0) {
-            // Update the allocation
-            Future existingFuture = futureService.findById(future.getId());
-            existingFuture.setAllocationPercentage(future.getAllocationPercentage());
-            futureService.saveOrUpdateFuture(existingFuture);
-        } else {
-            // Create
-            Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds[0]));
-            future.setExchange(exchange);
-            futureService.saveOrUpdateFuture(future);
-        }
+    public String submit(@ModelAttribute Future future, Model model, @RequestParam("select.exchange.id") List<String> exchangeIds) {
+        Exchange exchange = exchangeService.findById(Long.decode(exchangeIds.get(0)));
+        future.setExchange(exchange);
+        futureService.saveOrUpdateFuture(future);
         model.addAttribute("futures", futureService.findAll());
         return "future";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String delete(@ModelAttribute Future future, HttpServletRequest request, Model model) {
+    public String delete(@ModelAttribute Future future, Model model) {
         futureService.deleteFuture(future);
         model.addAttribute("futures", futureService.findAll());
         return "future";

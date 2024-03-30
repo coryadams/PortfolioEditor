@@ -19,7 +19,7 @@ public class FutureService {
     FutureRepository futureRepository;
 
     public Future findById(Long id) {
-        return futureRepository.findOne(id);
+        return futureRepository.findById(id).orElse(null);
     }
 
     public List<Future> findAll() {

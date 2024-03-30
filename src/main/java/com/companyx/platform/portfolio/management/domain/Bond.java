@@ -1,6 +1,8 @@
 package com.companyx.platform.portfolio.management.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
@@ -8,9 +10,9 @@ import java.sql.Date;
 public class Bond {
 
 
-    @javax.persistence.Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     @Column(name = "cusip", length = 15)
@@ -20,10 +22,11 @@ public class Bond {
     private String description;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "bond_type")
     private BondType bondType;
 
     @Column(name = "coupon")
-    private Double coupon;
+    private BigDecimal coupon;
 
     @Column(name = "maturity_date")
     private Date maturityDate;
@@ -32,7 +35,7 @@ public class Bond {
     private String rating;
 
     @Column(name = "allocation_percentage")
-    private Double allocationPercentage;
+    private BigDecimal allocationPercentage;
 
     @OneToOne
     @JoinColumn(name = "exchange_id")
@@ -85,11 +88,11 @@ public class Bond {
         this.bondType = bondType;
     }
 
-    public Double getCoupon() {
+    public BigDecimal getCoupon() {
         return coupon;
     }
 
-    public void setCoupon(Double coupon) {
+    public void setCoupon(BigDecimal coupon) {
         this.coupon = coupon;
     }
 
@@ -109,11 +112,11 @@ public class Bond {
         this.rating = rating;
     }
 
-    public Double getAllocationPercentage() {
+    public BigDecimal getAllocationPercentage() {
         return allocationPercentage;
     }
 
-    public void setAllocationPercentage(Double allocationPercentage) {
+    public void setAllocationPercentage(BigDecimal allocationPercentage) {
         this.allocationPercentage = allocationPercentage;
     }
 

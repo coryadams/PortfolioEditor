@@ -1,4 +1,4 @@
-package com.companyx.platform.portfolio.management.config;
+package com.companyx.platform.portfolio.management;
 
 
 import org.slf4j.Logger;

@@ -1,17 +1,13 @@
 package com.companyx.platform.portfolio.management.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
-
+import jakarta.persistence.*;
 @Entity
 @Table(name = "exchange")
 public class Exchange {
 
-    @javax.persistence.Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     @Column(name= "identifier", length = 35)

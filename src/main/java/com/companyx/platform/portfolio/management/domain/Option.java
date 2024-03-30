@@ -1,15 +1,17 @@
 package com.companyx.platform.portfolio.management.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
 @Table(name = "option_asset")
 public class Option {
 
-    @javax.persistence.Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     @Column(name = "name", length = 55)
@@ -22,16 +24,17 @@ public class Option {
     private String underlyingSymbol;
 
     @Column(name = "expiration_date", length = 15)
-    private String expirationDate;
+    private Date expirationDate;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "option_type")
     private OptionType optionType;
 
     @Column(name = "strike_price")
-    private Double strikePrice;
+    private BigDecimal strikePrice;
 
     @Column(name = "allocation_percentage")
-    private Double allocationPercentage;
+    private BigDecimal allocationPercentage;
 
     @OneToOne
     @JoinColumn(name = "exchange_id")
@@ -84,11 +87,11 @@ public class Option {
         this.underlyingSymbol = underlyingSymbol;
     }
 
-    public String getExpirationDate() {
+    public Date getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(String expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -100,19 +103,19 @@ public class Option {
         this.optionType = optionType;
     }
 
-    public Double getStrikePrice() {
+    public BigDecimal getStrikePrice() {
         return strikePrice;
     }
 
-    public void setStrikePrice(Double strikePrice) {
+    public void setStrikePrice(BigDecimal strikePrice) {
         this.strikePrice = strikePrice;
     }
 
-    public Double getAllocationPercentage() {
+    public BigDecimal getAllocationPercentage() {
         return allocationPercentage;
     }
 
-    public void setAllocationPercentage(Double allocationPercentage) {
+    public void setAllocationPercentage(BigDecimal allocationPercentage) {
         this.allocationPercentage = allocationPercentage;
     }
 

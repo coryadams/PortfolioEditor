@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/fragments/head :: header"/>
+<head th:replace="~{fragments/head :: header}"/>
 <body class="page-body" data-url="http://neon.dev">
 <div class="page-container">
-    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div th:insert="~{fragments/sidebar-menu :: sidebar}" th:remove="tag"/>
     <div class="main-content">
         <div class="row">
             <!-- Profile Info and Notifications -->
             <div class="col-md-6 col-sm-8 clearfix">
-                <!--<div th:include="fragments/notifications :: notifications"/>-->
+                <!--<div th:insert="~{fragments/notifications :: notifications}"/>-->
             </div>
             <!-- Raw Links -->
             <div class="col-md-6 col-sm-4 clearfix hidden-xs">
                 <ul class="list-inline links-list pull-right">
                     <li class="sep"></li>
                     <li>
-                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                        <div th:insert="~{fragments/logout-links :: link}" th:remove="tag"/>
                     </li>
                 </ul>
             </div>
@@ -24,11 +24,9 @@
         <hr/>
         <ol class="breadcrumb bc-3">
             <li>
-                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+                <a href = "/"><i class="entypo-home"></i>Home</a>
             </li>
-            <li>
-                <a href="/index.html">Administration</a>
-            </li>
+
             <li class="active">
                 <a href="/future">Future</a>
             </li>
@@ -47,33 +45,32 @@
                             <input type="hidden" id="id" th:field="${future.id}"/>
                             <div class="form-group">
                                 <label>Category</label>
-                                <input type="text" class="form-control" th:field="*{category}" placeholder="Category"/>
+                                <input type="text" class="form-control" th:field="*{category}" placeholder="Category}"/>
                                 <p class="help-block">The Category</p>
                             </div>
                             <div class="form-group">
                                 <label>Product</label>
-                                <input type="text" class="form-control" th:field="*{product}" placeholder="Product"/>
+                                <input type="text" class="form-control" th:field="*{product}" placeholder="Product}"/>
                                 <p class="help-block">The Product</p>
                             </div>
                             <div class="form-group">
                                 <label>Symbol</label>
-                                <input type="text" class="form-control" th:field="*{symbol}" placeholder="Symobol"/>
+                                <input type="text" class="form-control" th:field="*{symbol}" placeholder="Symobol}"/>
                                 <p class="help-block">The Symbol</p>
                             </div>
                             <div class="form-group">
                                 <label>Expiration date</label>
-                                <input type="text" class="form-control" th:field="*{expirationDate}" placeholder="Expiration Date"/>
+                                <input type="text" class="form-control" th:field="*{expirationDate}" placeholder="Expiration Date}"/>
                                 <p class="help-block">The Expiration Date</p>
                             </div>
                             <div class="form-group">
                                 <label>Allocation Percentage</label>
-                                <input type="text" class="form-control" th:field="*{allocationPercentage}" placeholder="Allocation Percentage"/>
+                                <input type="text" class="form-control" th:field="*{allocationPercentage}" placeholder="Allocation Percentage}"/>
                                 <p class="help-block">The Allocation Percentage</p>
                             </div>
                             <div class="form-group">
                                 <label for="select.exchange.id">Exchanges</label> <br/>
-                                <input th:if="${future.id != null}" type="text" class="form-control" th:field="*{exchange.identifier}" readonly="true"/>
-                                <select th:if="${future.id == null}" id="select.exchange.id" multiple="false" name="select.exchange.id">
+                                <select id="select.exchange.id" multiple="false" name="select.exchange.id">
                                     <option th:each="exchange : ${exchangeList}" th:value="${exchange.id}"
                                             th:text="${exchange.identifier}"
                                             th:selected="${future.exchange == exchange}"/>
@@ -89,9 +86,9 @@
         </div>
         <br/>
         <!-- Footer -->
-        <footer th:replace="/fragments/footer :: footer"/>
+        <footer th:replace="~{fragments/footer :: footer}"/>
     </div>
 </div>
-<th:block th:include="fragments/footer-links :: links"/>
+<th:block th:insert="~{fragments/footer-links :: links}"/>
 </body>
 </html>

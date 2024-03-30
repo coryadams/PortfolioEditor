@@ -1,10 +1,8 @@
 package com.companyx.platform.portfolio.management.service;
 
 import com.companyx.platform.portfolio.management.domain.DailyAssetAllocation;
-import com.companyx.platform.portfolio.management.domain.Option;
 import com.companyx.platform.portfolio.management.domain.Portfolio;
 import com.companyx.platform.portfolio.management.repository.DailyAssetAllocationRepository;
-import com.companyx.platform.portfolio.management.repository.OptionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +21,7 @@ public class DailyAssetAllocationService {
     DailyAssetAllocationRepository dailyAssetAllocationRepository;
 
     public DailyAssetAllocation findById(Long id) {
-        return dailyAssetAllocationRepository.findOne(id);
+        return dailyAssetAllocationRepository.findById(id).orElse(null);
     }
 
     public List<DailyAssetAllocation> findByPortfolioAndDateBetween(Portfolio portfolio, Date start, Date end) {

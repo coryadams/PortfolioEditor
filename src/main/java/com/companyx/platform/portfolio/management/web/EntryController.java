@@ -8,14 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 @Controller
+@RequestMapping("/")
 public class EntryController {
 
     @Autowired
@@ -30,17 +27,12 @@ public class EntryController {
     @Autowired
     FutureService futureService;
 
-    @RequestMapping("/")
-    public String home(Model model, HttpServletRequest httpServletRequest, HttpSession httpSession) {
+    @RequestMapping(method = RequestMethod.GET)
+    public String home(Model model) {
         model.addAttribute("totalEquities", equityService.findAll().size());
         model.addAttribute("totalOptions", optionService.findAll().size());
         model.addAttribute("totalBonds", bondService.findAll().size());
         model.addAttribute("totalFutures", futureService.findAll().size());
         return "index";
-    }
-
-    @RequestMapping("index.html")
-    public String index(Model model, HttpServletRequest httpServletRequest, HttpSession httpSession) {
-        return home(model, httpServletRequest, httpSession);
     }
 }

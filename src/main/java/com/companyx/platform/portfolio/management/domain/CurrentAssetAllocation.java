@@ -1,8 +1,7 @@
 package com.companyx.platform.portfolio.management.domain;
 
-import javax.persistence.*;
-import java.sql.Date;
-import java.util.List;
+import jakarta.persistence.*;
+
 import java.util.Set;
 
 /**
@@ -17,8 +16,8 @@ import java.util.Set;
 public class CurrentAssetAllocation {
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     @ManyToOne

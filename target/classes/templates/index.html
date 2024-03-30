@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: header"/>
+<head th:replace="~{fragments/head :: header}"/>
 <body class="page-body" data-url="http://neon.dev">
 <div class="page-container">
     <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 
-    <div th:include="fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div th:insert="~{fragments/sidebar-menu :: sidebar}"/>
 
     <div class="main-content">
 
@@ -14,7 +14,7 @@
             <ul class="list-inline links-list pull-right">
                 <li class="sep"></li>
                 <li>
-                    <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                   <div th:insert="~{fragments/logout-links :: link}"/>
                 </li>
             </ul>
             <div th:inline="text">Logged in User: spoof</div>
@@ -26,7 +26,7 @@
             <div class="col-sm-3">
                 <div class="tile-stats tile-red">
                     <div class="icon"><i class="entypo-users"></i></div>
-                    <div class="num" data-start="0" th:attr="data-end=*{totalEquities}" data-postfix=""
+                    <div class="num" data-start="0" th:text="${totalEquities}" data-postfix=""
                          data-duration="1500" data-delay="0">0
                     </div>
                     <h3>Total Equities</h3>
@@ -36,7 +36,7 @@
             <div class="col-sm-3">
                 <div class="tile-stats tile-aqua">
                     <div class="icon"><i class="entypo-chat"></i></div>
-                    <div class="num" data-start="0" th:attr="data-end=*{totalOptions}" data-postfix=""
+                    <div class="num" data-start="0" th:text="${totalOptions}" data-postfix=""
                          data-duration="1500" data-delay="1200">0
                     </div>
                     <h3>Total Options</h3>
@@ -46,7 +46,7 @@
             <div class="col-sm-3">
                 <div class="tile-stats tile-green">
                     <div class="icon"><i class="entypo-database"></i></div>
-                    <div class="num" data-start="0" th:attr="data-end=*{totalBonds}" data-postfix=""
+                    <div class="num" data-start="0" th:text="${totalBonds}" data-postfix=""
                          data-duration="1500" data-delay="600">0
                     </div>
                     <h3>Total Bonds</h3>
@@ -56,7 +56,7 @@
             <div class="col-sm-3">
                 <div class="tile-stats tile-blue">
                     <div class="icon"><i class="entypo-rss"></i></div>
-                    <div class="num" data-start="0" th:attr="data-end=*{totalFutures}" data-postfix=""
+                    <div class="num" data-start="0" th:text="${totalFutures}" data-postfix=""
                          data-duration="1500" data-delay="1800">0
                     </div>
                     <h3>Total Futures</h3>
@@ -80,7 +80,7 @@
         <div class="row">
         </div>
         <!-- Footer -->
-        <footer th:replace="fragments/footer :: footer"/>
+        <footer th:replace="~{fragments/footer :: footer}"/>
     </div>
 </div>
 <script type="text/javascript">
@@ -88,6 +88,6 @@
 
     /*]]>*/
 </script>
-<th:block th:include="fragments/index-footer-links :: links"/>
+<th:block th:insert="~{fragments/index-footer-links :: links}"/>
 </body>
 </html>

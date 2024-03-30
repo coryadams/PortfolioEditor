@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/fragments/head :: header"/>
+<head th:replace="~{fragments/head :: header}"/>
 <body class="page-body" data-url="http://neon.dev">
 <div class="page-container">
-    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div th:insert="~{fragments/sidebar-menu :: sidebar}" th:remove="tag"/>
     <div class="main-content">
         <div class="row">
             <!-- Profile Info and Notifications -->
             <div class="col-md-6 col-sm-8 clearfix">
-                <!--<div th:include="fragments/notifications :: notifications"/>-->
+                <!--<div th:insert="~{fragments/notifications :: notifications}"/>-->
             </div>
             <!-- Raw Links -->
             <div class="col-md-6 col-sm-4 clearfix hidden-xs">
                 <ul class="list-inline links-list pull-right">
                     <li class="sep"></li>
                     <li>
-                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                        <div th:insert="~{fragments/logout-links :: link}" th:remove="tag"/>
                     </li>
                 </ul>
             </div>
@@ -24,11 +24,9 @@
         <hr/>
         <ol class="breadcrumb bc-3">
             <li>
-                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+                <a href = "/"><i class="entypo-home"></i>Home</a>
             </li>
-            <li>
-                <a href="/index.html">Administration</a>
-            </li>
+
             <li class="active">
                 <strong>Report</strong>
             </li>
@@ -47,12 +45,12 @@
                             <input type="hidden" id="id" th:field="${portfolio.id}"/>
                             <div class="form-group">
                                 <label>Start Date</label>
-                                <input  type="text" placeholder="Click to show datepicker" name="date_picker" id="date_picker"/>
+                                <input  type="text" placeholder="Click to show datepicker" name="date_picker" id="date_picker}"/>
                                 <p class="help-block">Select your start date</p>
                             </div>
                             <div class="form-group">
                                 <label>Number of Days</label>
-                                <input type="text" name="days" id="days" placeholder="Number of Days"/>
+                                <input type="text" name="days" id="days" placeholder="Number of Days}"/>
                                 <p class="help-block">The Number of Days from your selected start date to include</p>
                             </div>
                             <button type="submit" class="btn btn-success">Submit</button>
@@ -80,7 +78,7 @@
                                         <p>
                                            - <span th:text="${equity.ticker}"/>,
                                            - <span th:text="${equity.name}"/>,
-                                           - <span th:text="${equity.allocationPercentage} + '%'"/>
+                                           - <span th:text="${equity.allocationPercentage} + '%'}"/>
                                         </p>
                                         </th:block>
 
@@ -90,7 +88,7 @@
                                             - <span th:text="${option.contractName}"/>,
                                             - <span th:text="${option.underlyingSymbol}"/>,
                                             - <span th:text="${option.optionType}"/>,
-                                            - <span th:text="${option.allocationPercentage} + '%'"/>
+                                            - <span th:text="${option.allocationPercentage} + '%'}"/>
                                         </p>
                                     </th:block>
 
@@ -99,7 +97,7 @@
                                         <p>
                                             - <span th:text="${bond.cusip}"/>,
                                             - <span th:text="${bond.description}"/>,
-                                            - <span th:text="${bond.allocationPercentage} + '%'"/>
+                                            - <span th:text="${bond.allocationPercentage} + '%'}"/>
                                         </p>
                                     </th:block>
 
@@ -109,7 +107,7 @@
                                             - <span th:text="${future.category}"/>,
                                             - <span th:text="${future.product}"/>,
                                             - <span th:text="${future.symbol}"/>,
-                                            - <span th:text="${future.allocationPercentage} + '%'"/>
+                                            - <span th:text="${future.allocationPercentage} + '%'}"/>
                                         </p>
                                     </th:block>
                                 </td>
@@ -124,7 +122,7 @@
 
         <br/>
         <!-- Footer -->
-        <footer th:replace="/fragments/footer :: footer"/>
+        <footer th:replace="~{fragments/footer :: footer}"/>
     </div>
 </div>
 
@@ -139,6 +137,6 @@
     });
     /*]]>*/
 </script>
-<th:block th:include="fragments/footer-links :: links"/>
+<th:block th:insert="~{fragments/footer-links :: links}"/>
 </body>
 </html>

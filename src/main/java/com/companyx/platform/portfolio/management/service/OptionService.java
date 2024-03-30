@@ -1,8 +1,6 @@
 package com.companyx.platform.portfolio.management.service;
 
-import com.companyx.platform.portfolio.management.domain.Equity;
 import com.companyx.platform.portfolio.management.domain.Option;
-import com.companyx.platform.portfolio.management.repository.EquityRepository;
 import com.companyx.platform.portfolio.management.repository.OptionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +19,7 @@ public class OptionService {
     OptionRepository optionRepository;
 
     public Option findById(Long id) {
-        return optionRepository.findOne(id);
+        return optionRepository.findById(id).orElse(null);
     }
 
     public List<Option> findAll() {

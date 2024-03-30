@@ -1,7 +1,7 @@
 package com.companyx.platform.portfolio.management.service;
 
-import com.companyx.platform.portfolio.management.domain.*;
-import com.companyx.platform.portfolio.management.repository.BondRepository;
+import com.companyx.platform.portfolio.management.domain.DailyAssetAllocation;
+import com.companyx.platform.portfolio.management.domain.Portfolio;
 import com.companyx.platform.portfolio.management.repository.PortfolioRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -58,7 +57,7 @@ public class PortfolioService {
     }
 
     public Portfolio findById(Long id) {
-        return portfolioRepository.findOne(id);
+        return portfolioRepository.findById(id).orElse(null);
     }
 
     public List<Portfolio> findAll() {

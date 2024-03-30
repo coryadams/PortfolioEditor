@@ -1,16 +1,16 @@
 package com.companyx.platform.portfolio.management.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "portfolio")
 public class Portfolio {
 
-    @javax.persistence.Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     @Column(name = "name", length = 55)

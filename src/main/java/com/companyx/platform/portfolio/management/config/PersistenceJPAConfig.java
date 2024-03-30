@@ -4,24 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.repository.query.QueryLookupStrategy;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
+@EnableJpaRepositories("com.companyx.platform.portfolio.management.repository")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.companyx.platform.portfolio.management.repository", queryLookupStrategy = QueryLookupStrategy.Key.CREATE_IF_NOT_FOUND)
 public class PersistenceJPAConfig {
 
     @Value("${jdbc.driverClassName}")
@@ -55,8 +51,6 @@ public class PersistenceJPAConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setDataSource(appDataSource());
-        factoryBean.setPackagesToScan(new String[] { "com.companyx.platform.portfolio.management.domain" });
 
         final JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter() {
             {
@@ -67,6 +61,8 @@ public class PersistenceJPAConfig {
             }
         };
         factoryBean.setJpaVendorAdapter(vendorAdapter);
+        factoryBean.setDataSource(appDataSource());
+        factoryBean.setPackagesToScan("com.companyx.platform.portfolio.management.domain");
         factoryBean.setJpaProperties(additionlProperties());
         return factoryBean;
     }
@@ -81,24 +77,12 @@ public class PersistenceJPAConfig {
         return dataSource;
     }
 
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        final JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
-        return transactionManager;
-    }
-
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor() {
-        return new PersistenceExceptionTranslationPostProcessor();
-    }
-
     final Properties additionlProperties() {
         return new Properties() {
             {
                 // use this to inject additional properties in the EntityManager
+                setProperty("hibernate.hbm2ddl.auto", "validate");
                 // setProperty("hibernate.hbm2ddl.auto", hibernateHbm2ddlAuto);
-                setProperty("hibernate.ejb.naming_strategy", org.hibernate.cfg.ImprovedNamingStrategy.class.getName());
             }
         };
     }

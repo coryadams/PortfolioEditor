@@ -7,12 +7,9 @@ import com.companyx.platform.portfolio.management.service.ExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/equity")
@@ -26,12 +23,12 @@ public class EquityController {
 
     /**
      * Find entity
+     *
      * @param model
-     * @param httpServletRequest
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String list(Model model, HttpServletRequest httpServletRequest) {
+    public String list(Model model) {
         model.addAttribute("equities", equityService.findAll());
         return "equity";
     }
@@ -62,27 +59,18 @@ public class EquityController {
         return "/equity-edit";
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String submit(@ModelAttribute Equity equity, HttpServletRequest request, Model model) {
-        String[] exchangeIds = request.getParameterValues("select.exchange.id");
-        // If new create else if exists update
-        if (equity.getId() != null && equity.getId() > 0) {
-            // Update the allocation
-            Equity existingEquity = equityService.findById(equity.getId());
-            existingEquity.setAllocationPercentage(equity.getAllocationPercentage());
-            equityService.saveOrUpdateEquity(existingEquity);
-        } else {
-            // Create
-            Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds[0]));
-            equity.setExchange(exchange);
-            equityService.saveOrUpdateEquity(equity);
-        }
+    @RequestMapping(method = RequestMethod.POST)
+    public String submit(@ModelAttribute Equity equity, Model model, @RequestParam("select.exchange.id") List<String> exchangeIds) {
+        Exchange exchange = exchangeService.findById(Long.parseLong(exchangeIds.get(0)));
+        equity.setExchange(exchange);
+        equityService.saveOrUpdateEquity(equity);
+
         model.addAttribute("equities", equityService.findAll());
         return "/equity";
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String delete(@ModelAttribute Equity equity, HttpServletRequest request, Model model) {
+    @RequestMapping(method = RequestMethod.DELETE)
+    public String delete(@ModelAttribute Equity equity, Model model) {
         equityService.deleteHEquity(equity);
         model.addAttribute("equities", equityService.findAll());
         return "/equity";

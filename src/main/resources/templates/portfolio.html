@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/fragments/head :: header"/>
+<head th:replace="~{fragments/head :: header}"/>
 <body class="page-body" data-url="http://neon.dev">
 <div class="page-container">
 
-    <div th:include="/fragments/sidebar-menu :: sidebar" th:remove="tag"/>
+    <div th:insert="~{fragments/sidebar-menu :: sidebar}" th:remove="tag"/>
 
     <div class="main-content">
 
         <div class="row">
             <!-- Profile Info and Notifications -->
             <div class="col-md-6 col-sm-8 clearfix">
-                <!--<div th:include="fragments/notifications :: notifications"/>-->
+                <!--<div th:insert="~{fragments/notifications :: notifications}"/>-->
             </div>
             <!-- Raw Links -->
             <div class="col-md-6 col-sm-4 clearfix hidden-xs">
                 <ul class="list-inline links-list pull-right">
                     <li class="sep"></li>
                     <li>
-                        <div th:include="fragments/logout-links :: link" th:remove="tag"/>
+                        <div th:insert="~{fragments/logout-links :: link}" th:remove="tag"/>
                     </li>
                 </ul>
             </div>
@@ -27,11 +27,9 @@
         <hr/>
         <ol class="breadcrumb bc-3">
             <li>
-                <a href="/index.html"><i class="entypo-home"></i>Home</a>
+                <a href = "/"><i class="entypo-home"></i>Home</a>
             </li>
-            <li>
-                <a href="/index.html">Administration</a>
-            </li>
+
             <li class="active">
                 <strong>Portfolio</strong>
             </li>
@@ -220,7 +218,7 @@
         </table>
         <p></p>
         <!-- Footer -->
-        <footer th:replace="/fragments/footer :: footer"/>
+        <footer th:replace="~{fragments/footer :: footer}"/>
     </div>
 </div>
 
@@ -230,7 +228,7 @@
     /*]]>*/
 </script>
 
-<th:block th:include="/fragments/footer-links :: links"/>
+<th:block th:insert="~{fragments/footer-links :: links}"/>
 
 </body>
 </html>

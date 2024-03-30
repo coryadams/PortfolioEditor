@@ -1,8 +1,6 @@
 package com.companyx.platform.portfolio.management.service;
 
-import com.companyx.platform.portfolio.management.domain.Equity;
 import com.companyx.platform.portfolio.management.domain.Exchange;
-import com.companyx.platform.portfolio.management.repository.EquityRepository;
 import com.companyx.platform.portfolio.management.repository.ExchangeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +19,7 @@ public class ExchangeService {
     ExchangeRepository exchangeRepository;
 
     public Exchange findById(Long id) {
-        return exchangeRepository.findOne(id);
+        return exchangeRepository.findById(id).orElse(null);
     }
 
     public List<Exchange> findAll() {

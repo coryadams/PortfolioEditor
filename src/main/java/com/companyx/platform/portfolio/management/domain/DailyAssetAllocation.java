@@ -1,8 +1,8 @@
 package com.companyx.platform.portfolio.management.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.sql.Date;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,9 +18,9 @@ import java.util.Set;
 @Table(name = "daily_asset_allocation")
 public class DailyAssetAllocation {
 
-    @javax.persistence.Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     @Column(name = "date")

@@ -1,15 +1,17 @@
 package com.companyx.platform.portfolio.management.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
 @Table(name = "future_asset")
 public class Future {
 
-    @javax.persistence.Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     @Column(name = "category", length = 15)
@@ -25,7 +27,7 @@ public class Future {
     private Date expirationDate;
 
     @Column(name = "allocation_percentage")
-    private Double allocationPercentage;
+    private BigDecimal allocationPercentage;
 
     @OneToOne
     @JoinColumn(name = "exchange_id")
@@ -84,11 +86,11 @@ public class Future {
         this.expirationDate = expirationDate;
     }
 
-    public Double getAllocationPercentage() {
+    public BigDecimal getAllocationPercentage() {
         return allocationPercentage;
     }
 
-    public void setAllocationPercentage(Double allocationPercentage) {
+    public void setAllocationPercentage(BigDecimal allocationPercentage) {
         this.allocationPercentage = allocationPercentage;
     }
 

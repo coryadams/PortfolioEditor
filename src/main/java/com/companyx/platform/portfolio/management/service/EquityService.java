@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class EquityService {
     ExchangeRepository exchangeRepository;
 
     public Equity findById(Long id) {
-        return equityRepository.findOne(id);
+        return equityRepository.findById(id).orElse(null);
     }
 
     public List<Equity> findAll() {

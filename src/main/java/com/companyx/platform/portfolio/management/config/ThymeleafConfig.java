@@ -12,7 +12,7 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 
 @Configuration
-public class MvcConfig {
+public class ThymeleafConfig {
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -54,14 +54,6 @@ public class MvcConfig {
         viewResolver.setOrder(1);
         viewResolver.setViewNames(new String[] {".html", ".xhtml"});
         return viewResolver;
-    }
-
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/index.html").setViewName("index");
-        registry.addViewController("/").setViewName("index");
-        registry.addViewController("/equity.html").setViewName("/equity");
-        registry.addViewController("/bond.html").setViewName("/bond");
-        registry.addViewController("/future.html").setViewName("index");
     }
 
 }
