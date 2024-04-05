@@ -42,4 +42,6 @@ Running the application:
 
  Access the application at http://<host>:8080/PortfolioEditor
 
-
+TODO:
+1) OTel figure out context propagation. Kryo chokes on the shaded AgentContextWrapper which we can't find to create a customer serializer for.
+2) Get logs going so they show up with Traces. Configure this properly.

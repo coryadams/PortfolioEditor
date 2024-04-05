@@ -4,6 +4,9 @@ import com.companyx.platform.portfolio.management.domain.Equity;
 import com.companyx.platform.portfolio.management.domain.Exchange;
 import com.companyx.platform.portfolio.management.service.EquityService;
 import com.companyx.platform.portfolio.management.service.ExchangeService;
+import io.opentelemetry.api.trace.Span;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/equity")
 public class EquityController {
+
+    private Logger log = LoggerFactory.getLogger(EquityController.class);
 
     @Autowired
     EquityService equityService;
@@ -29,6 +34,11 @@ public class EquityController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {
+        String traceId = Span.current().getSpanContext().getTraceId().toString();
+        String spanId = Span.current().getSpanContext().getSpanId().toString();
+        log.info("traceId = " + traceId);
+        log.info("spanId = " + spanId);
+
         model.addAttribute("equities", equityService.findAll());
         return "equity";
     }

@@ -5,6 +5,9 @@ import com.companyx.platform.portfolio.management.domain.Option;
 import com.companyx.platform.portfolio.management.domain.OptionType;
 import com.companyx.platform.portfolio.management.service.ExchangeService;
 import com.companyx.platform.portfolio.management.service.OptionService;
+import io.opentelemetry.api.trace.Span;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +15,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/option")
 public class OptionController {
+
+    private Logger log = LoggerFactory.getLogger(OptionController.class);
 
     @Autowired
     OptionService optionService;
@@ -31,6 +37,11 @@ public class OptionController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {
+        String traceId = Span.current().getSpanContext().getTraceId().toString();
+        String spanId = Span.current().getSpanContext().getSpanId().toString();
+        log.info("traceId = " + traceId);
+        log.info("spanId = " + spanId);
+
         model.addAttribute("options", optionService.findAll());
         return "option";
     }
